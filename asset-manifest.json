@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/react-deploy/static/js/main.9ee7a71d.js",
-    "static/js/762.0055ac11.chunk.js": "/react-deploy/static/js/762.0055ac11.chunk.js",
-    "static/js/151.cf161176.chunk.js": "/react-deploy/static/js/151.cf161176.chunk.js",
-    "static/js/833.3bc81264.chunk.js": "/react-deploy/static/js/833.3bc81264.chunk.js",
-    "index.html": "/react-deploy/index.html",
-    "main.9ee7a71d.js.map": "/react-deploy/static/js/main.9ee7a71d.js.map",
-    "762.0055ac11.chunk.js.map": "/react-deploy/static/js/762.0055ac11.chunk.js.map",
-    "151.cf161176.chunk.js.map": "/react-deploy/static/js/151.cf161176.chunk.js.map",
-    "833.3bc81264.chunk.js.map": "/react-deploy/static/js/833.3bc81264.chunk.js.map"
+    "main.js": "/React-Website/static/js/main.ffdf681f.js",
+    "static/js/762.0055ac11.chunk.js": "/React-Website/static/js/762.0055ac11.chunk.js",
+    "static/js/151.cf161176.chunk.js": "/React-Website/static/js/151.cf161176.chunk.js",
+    "static/js/833.3bc81264.chunk.js": "/React-Website/static/js/833.3bc81264.chunk.js",
+    "index.html": "/React-Website/index.html",
+    "main.ffdf681f.js.map": "/React-Website/static/js/main.ffdf681f.js.map",
+    "762.0055ac11.chunk.js.map": "/React-Website/static/js/762.0055ac11.chunk.js.map",
+    "151.cf161176.chunk.js.map": "/React-Website/static/js/151.cf161176.chunk.js.map",
+    "833.3bc81264.chunk.js.map": "/React-Website/static/js/833.3bc81264.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.9ee7a71d.js"
+    "static/js/main.ffdf681f.js"
   ]
 }
