@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "“https://adamhammond22.github.io/React-Website/static/js/main.ecb4d8a5.js",
-    "static/js/762.0055ac11.chunk.js": "“https://adamhammond22.github.io/React-Website/static/js/762.0055ac11.chunk.js",
-    "static/js/151.cf161176.chunk.js": "“https://adamhammond22.github.io/React-Website/static/js/151.cf161176.chunk.js",
-    "static/js/833.3bc81264.chunk.js": "“https://adamhammond22.github.io/React-Website/static/js/833.3bc81264.chunk.js",
-    "index.html": "“https://adamhammond22.github.io/React-Website/index.html",
-    "main.ecb4d8a5.js.map": "“https://adamhammond22.github.io/React-Website/static/js/main.ecb4d8a5.js.map",
-    "762.0055ac11.chunk.js.map": "“https://adamhammond22.github.io/React-Website/static/js/762.0055ac11.chunk.js.map",
-    "151.cf161176.chunk.js.map": "“https://adamhammond22.github.io/React-Website/static/js/151.cf161176.chunk.js.map",
-    "833.3bc81264.chunk.js.map": "“https://adamhammond22.github.io/React-Website/static/js/833.3bc81264.chunk.js.map"
+    "main.js": "/React-Website/static/js/main.ffdf681f.js",
+    "static/js/762.0055ac11.chunk.js": "/React-Website/static/js/762.0055ac11.chunk.js",
+    "static/js/151.cf161176.chunk.js": "/React-Website/static/js/151.cf161176.chunk.js",
+    "static/js/833.3bc81264.chunk.js": "/React-Website/static/js/833.3bc81264.chunk.js",
+    "index.html": "/React-Website/index.html",
+    "main.ffdf681f.js.map": "/React-Website/static/js/main.ffdf681f.js.map",
+    "762.0055ac11.chunk.js.map": "/React-Website/static/js/762.0055ac11.chunk.js.map",
+    "151.cf161176.chunk.js.map": "/React-Website/static/js/151.cf161176.chunk.js.map",
+    "833.3bc81264.chunk.js.map": "/React-Website/static/js/833.3bc81264.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.ecb4d8a5.js"
+    "static/js/main.ffdf681f.js"
   ]
 }
