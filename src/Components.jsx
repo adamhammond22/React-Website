@@ -186,7 +186,8 @@ function CustomNavbar(props) {
           {/* Typography box */}
           <Box sx = {{display: 'flex', flexGrow: 1,
             justifyContent: 'left'}}name = 'typography box'>
-            <Typography variant="h2" component="div" sx={{display: 'flex'}}>
+            <Typography component="div" sx={{fontSize: {xs: 30, sm: 55},
+              display: 'flex'}}>
               Adam Hammond
             </Typography>
           </Box>

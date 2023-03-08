@@ -34,7 +34,7 @@ const rightContentBoxes = () => {
         About Me
         </Typography>
         <Typography variant = "p3">
-          I'm interested in Algorithems, Systema, Machine Learning,
+          I'm interested in Algorithems, Systems, Machine Learning,
           Networking, and more! I'm currently looking for a 2023
           Summer Internship, as well as opportunities after I
           graduate in June 2024!

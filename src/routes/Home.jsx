@@ -29,12 +29,11 @@ function Home() {
           height: 'auto', mt: 5, flexDirection: {xs: 'column', md: 'row'},
           p: '16px', alignItems: 'center'}}
         backgroundColor = 'tertiary.main' name = 'greeting box'>
-          <Box component = 'img' src="adam2.jpg" width = '40%' height = '40%'
-            sx = {{height: 330, width: 413,
-              maxHeight: {xs: 370, md: 330},
-              maxWidth: {xs: 453, md: 413},
+          <Box component = 'img' src="adam2.jpg"
+            sx = {{ display: 'flex',
+              maxWidth: {xs: 250, sm: 413}, minWidth: 100,
               flexShrink: 1, border: 15, borderColor: 'quaternary.main'}}/>
-          <Box sx = {{pl: 5, flexShrink: 1}}>
+          <Box sx = {{pl: 5, flexShrink: 2}}>
             <Typography variant = 'p1' color = 'tertiary.contrastText'>
               Hello There! <br />
             </Typography>
@@ -61,7 +60,7 @@ function Home() {
         {/* Main Content Box */}
         <Box sx = {{minWidth: 320, width: `calc(90%)`,
           mt: 2, height: 'auto'}}>
-          <MainContent name = 'main Content'/>
+          <MainContent name = 'main content'/>
         </Box>
       </Box>
       <CustomFooter />
