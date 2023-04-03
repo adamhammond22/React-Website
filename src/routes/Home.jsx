@@ -31,7 +31,7 @@ function Home() {
         backgroundColor = 'tertiary.main' name = 'greeting box'>
           <Box component = 'img' src="adam2.jpg"
             sx = {{ display: 'flex',
-              maxWidth: {xs: 250, sm: 413}, minWidth: 100,
+              maxWidth: {xs: 300, sm: 413}, minWidth: 100,
               flexShrink: 1, border: 15, borderColor: 'quaternary.main'}}/>
           <Box sx = {{pl: 5, flexShrink: 2}}>
             <Typography variant = 'p1' color = 'tertiary.contrastText'>
