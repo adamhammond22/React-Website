@@ -5,6 +5,7 @@ import {ThemeStateContext} from './Contexts';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import {Suspense} from 'react';
+import {CustomNavbar} from './Components';
 
 // Lazyload content so they have time to setup themes
 const Home = lazy(() => import('./routes/Home'));
@@ -53,9 +54,10 @@ function App() {
       <CssBaseline /> {/* For Background Color */}
       <ThemeStateContext.Provider value = {{themeState, changeThemeState}}>
         <Suspense fallback = {null}>
+        <CustomNavbar currentPage={'Home'}/>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Projects" element={<Projects />} />
+            <Route path = "/" element={<Home />} />
+            <Route path = "/Projects" element={<Projects />} />
           </Routes>
         </Suspense>
       </ThemeStateContext.Provider>

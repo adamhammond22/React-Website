@@ -1,14 +1,14 @@
 import React from 'react';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import {CustomNavbar, CustomFooter} from '../Components';
+import {CustomFooter} from '../Components';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import {Typography} from '@mui/material';
 import {leftContentBoxes, rightContentBoxes} from '../HomeContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {useTheme} from '@mui/material/styles';
-import Link from '@mui/material/Link';
+import {Link} from 'react-router-dom';
 // import {useNavigate} from "react-router-dom";
 
 const githubLink = 'https://github.com/adamhammond22';
@@ -21,7 +21,6 @@ const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
 function Home() {
   return (
     <Box>
-      <CustomNavbar currentPage={'Home'}/>
       <Box name= 'content' sx={{display: 'flex', alignItems: 'center',
         flexDirection: 'column'}}>
         {/* Top Box */}

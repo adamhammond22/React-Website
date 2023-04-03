@@ -12,7 +12,6 @@ import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import MenuItem from '@mui/material/MenuItem';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,7 +20,7 @@ import {ThemeStateContext} from './Contexts';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import Link from '@mui/material/Link';
+import {Link} from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 
 const resumeLink = 'AdamHammondResumeNov22-4.pdf';
@@ -30,20 +29,35 @@ const githubLink = 'https://github.com/adamhammond22';
 const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
 
 /* Return all menu buttons */
-const menuButtons = (currentPage)=> {
+const menuButtons = () => {
   return (
     <Box>
-      <Button
-        sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-        color = 'nbButtons'
-        variant = 'contained'
-        startIcon={<QuestionAnswerIcon />}
-        name = {'Contact button'}
-        key = 'Contact'>
-        <Typography variant = "h6">
-          Contact
-        </Typography>
-      </Button>
+      <Link to='/'>
+        <Button
+          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
+          color = 'nbButtons'
+          variant = 'contained'
+          startIcon={<HomeIcon />}
+          name = {'Home button'}
+          key = 'Home'>
+          <Typography variant = "h6">
+            Home
+          </Typography>
+        </Button>
+      </Link>
+      <Link to='/Projects'>
+        <Button
+          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
+          color = 'nbButtons'
+          variant = 'contained'
+          startIcon={<WorkHistoryIcon />}
+          name = {'Projects button'}
+          key = 'Projects'>
+          <Typography variant = "h6">
+            Projects
+          </Typography>
+        </Button>
+      </Link>
       <Link href= {resumeLink} target="_blank">
         <Button
           sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
@@ -61,53 +75,15 @@ const menuButtons = (currentPage)=> {
         sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
         color = 'nbButtons'
         variant = 'contained'
-        startIcon={<VideogameAssetIcon />}
-        name = {'Games button'}
-        key = 'Games'>
+        startIcon={<QuestionAnswerIcon />}
+        name = {'Contact button'}
+        key = 'Contact'>
         <Typography variant = "h6">
-          Games
+          Contact
         </Typography>
       </Button>
-      {pageSpecificButtons(currentPage)}
     </Box>
   );
-};
-
-/* Return page specific buttons */
-const pageSpecificButtons = (currentPage) => {
-  if (currentPage === 'Home') {
-    return (
-      <Link to='/Projects'>
-        <Button
-          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-          color = 'nbButtons'
-          variant = 'contained'
-          startIcon={<WorkHistoryIcon />}
-          name = {'Projects button'}
-          key = 'Projects'>
-          <Typography variant = "h6">
-            Projects
-          </Typography>
-        </Button>
-      </Link>
-    );
-  } else {
-    return (
-      <Link to='/'>
-        <Button
-          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-          color = 'nbButtons'
-          variant = 'contained'
-          startIcon={<HomeIcon />}
-          name = {'Home button'}
-          key = 'Home'>
-          <Typography variant = "h6">
-            Home
-          </Typography>
-        </Button>
-      </Link>
-    );
-  }
 };
 
 /**
@@ -169,7 +145,7 @@ function CustomNavbar(props) {
         variant = 'temporary'
         PaperProps={{sx: {width: 160}}}>
         <IconButton />
-        {menuButtons(props.currentPage)}
+        {menuButtons()}
       </Drawer>
       {/* Top Navbar */}
       <AppBar position="static"
@@ -195,7 +171,7 @@ function CustomNavbar(props) {
           <Box sx = {{flexGrow: 2, justifyContent: 'flex-end',
             display: {xs: 'none', md: 'flex'}}} name = 'button box'>
             {/* Buttons Box*/}
-            {menuButtons(props.currentPage)}
+            {menuButtons()}
           </Box>
           {/* Settings Box*/}
           <Box sx = {{flexShrink: 1, mr: 2,
