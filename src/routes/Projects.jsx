@@ -20,10 +20,10 @@ function Projects() {
           sx = {{height: 'auto', width: `calc(90%)`,
             mt: 2, mb: 2, p: 2, flexDirection: 'column', alignItems: 'center'}} >
           {/* projects line 1*/}
-          <Box sx = {{display: 'flex', alignItems: 'center',
+          <Box sx = {{display: 'flex', alignItems: {xs: 'center', md: 'start'},
             justifyContent: 'center',
             flexDirection: {xs: 'column', md: 'row'}}}>
-            {/* project 1*/}
+            {/* Personal Website*/}
             <Box backgroundColor = 'primary.main' color = 'primary.contrastText' alignItems = 'center'
               sx = {{width: `100%`, m: 2, p: 2, border: 5, borderColor: 'secondary.main'}}>
             <Typography variant = 'h3' align = 'center'>Personal Website</Typography>
@@ -48,19 +48,41 @@ function Projects() {
               </MUILink>
             </IconButton>
             </Box>
-            {/* project 2*/}
-            <Box backgroundColor = 'blue'
-              sx = {{height: 300, width: `100%`, m: 2}}/>
+            {/* Neuroscience Lab*/}
+            <Box backgroundColor = 'tertiary.main' color = 'tertiary.contrastText' alignItems = 'center'
+              sx = {{width: `100%`, m: 2, p: 2, border: 5, borderColor: 'secondary.main'}}>
+            <Typography variant = 'h3' align = 'center'>Neuroscience Excel Formatting</Typography>
+            <List>
+              <ListItem>
+                <RadioButtonCheckedIcon sx = {{mr: 1, height: 15, width: 15}}/>
+                <Typography variant = 'p3'>Formats raw data from BORIS behavior analysis software into usable excel spreadsheet for UCSC Neuroscience Lab</Typography>
+              </ListItem>
+              <ListItem>
+                <RadioButtonCheckedIcon sx = {{mr: 1, height: 15, width: 15}}/>
+                <Typography variant = 'p3'> Utilized Python, and pandas library to modify, iterate over, and create new excel sheets.</Typography>
+              </ListItem>
+              <ListItem>
+                <RadioButtonCheckedIcon sx = {{mr: 1, height: 15, width: 15}}/>
+                <Typography variant = 'p3'> Extremely extensive github documentation - designed for use by ordinary users.</Typography>
+              </ListItem>            
+            </List>
+            <IconButton>
+              <MUILink href= "https://github.com/adamhammond22/Neurolab_Scripts" target="_blank">
+                <GitHubIcon color = 'nbButtonsALT'
+                  sx = {{height: 30, width: 30}}/>
+              </MUILink>
+            </IconButton>
+            </Box>
           </Box>
           {/* projects line 2*/}
           <Box sx = {{display: 'flex', alignItems: 'center',
             justifyContent: 'center',
             flexDirection: {xs: 'column', md: 'row'}}}>
             {/* project 3*/}
-            <Box backgroundColor = 'yellow'
+            <Box backgroundColor = 'primary.main' color = 'primary.contrastText'
               sx = {{height: 300, width: `100%`, m: 2}}/>
             {/* project 4*/}
-            <Box backgroundColor = 'green'
+            <Box backgroundColor = 'tertiary.main' color = 'tertiary.contrastText'
               sx = {{height: 300, width: `100%`, m: 2}}/>
           </Box>
         </Box>

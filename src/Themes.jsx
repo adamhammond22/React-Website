@@ -34,6 +34,12 @@ const darkTheme = {
       // black
       contrastText: '#1F1F1F',
     },
+    nbButtonsALT: {
+      // bright purple
+      main: '#BB86FC',
+      // black
+      contrastText: '#1F1F1F',
+    },
     nbhighlight: {
       // highlight colors for settings & collapsenb
       main: '#BB86FC',
@@ -132,6 +138,12 @@ const lightTheme = {
     nbButtons: {
       // clean white
       main: '#fff',
+      // deep purple
+      contrastText: '#31293b',
+    },
+    nbButtonsALT: {
+      // black
+      main: 'black',
       // deep purple
       contrastText: '#31293b',
     },
