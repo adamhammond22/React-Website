@@ -28,63 +28,7 @@ const resumeLink = 'AdamHammondResumeNov22-4.pdf';
 const githubLink = 'https://github.com/adamhammond22';
 const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
 
-/* Return all menu buttons */
-const menuButtons = () => {
-  return (
-    <Box>
-      <Link to='/'>
-        <Button
-          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-          color = 'nbButtons'
-          variant = 'contained'
-          startIcon={<HomeIcon />}
-          name = {'Home button'}
-          key = 'Home'>
-          <Typography variant = "h6">
-            Home
-          </Typography>
-        </Button>
-      </Link>
-      <Link to='/Projects'>
-        <Button
-          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-          color = 'nbButtons'
-          variant = 'contained'
-          startIcon={<WorkHistoryIcon />}
-          name = {'Projects button'}
-          key = 'Projects'>
-          <Typography variant = "h6">
-            Projects
-          </Typography>
-        </Button>
-      </Link>
-      <Link href= {resumeLink} target="_blank">
-        <Button
-          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-          color = 'nbButtons'
-          variant = 'contained'
-          startIcon={<ContactPageIcon />}
-          name = {'Resume button'}
-          key = 'Resume'>
-          <Typography variant = "h6">
-            Resume
-          </Typography>
-        </Button>
-      </Link>
-      <Button
-        sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-        color = 'nbButtons'
-        variant = 'contained'
-        startIcon={<QuestionAnswerIcon />}
-        name = {'Contact button'}
-        key = 'Contact'>
-        <Typography variant = "h6">
-          Contact
-        </Typography>
-      </Button>
-    </Box>
-  );
-};
+
 
 /**
  * Navbar Drawer creator
@@ -98,12 +42,7 @@ function CustomNavbar(props) {
   /* State to track if collapsed navbar open */
   const [CollapsedNBOpen, setCollapsedNBOpen] = React.useState(false);
 
-  /* State to track anchor of settings */
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const settingsOpen = Boolean(anchorEl);
-
-  /* Handles a change in collapsed NB, setting it to bool */
+  /* Handles a change in collapsed NB, setting it to usable boolean */
   const handleChangeCollapsed = (bool) => {
     if (CollapsedNBOpen) {
       setCollapsedNBOpen(false);
@@ -112,14 +51,32 @@ function CustomNavbar(props) {
     }
   };
 
+  /* State to track anchor of contact */
+  const [contactAnchor, setContactAnchor] = React.useState(null);
+
+  const contactOpen = Boolean(contactAnchor);
+
+  /* Handles opening and closing of  Contact */
+  const handleContactClick = (event) => {
+    setContactAnchor(event.currentTarget);
+  };
+  const handleContactClose = () => {
+    setContactAnchor(null);
+  };
+
+  /* State to track anchor of settings */
+  const [settingsAnchor, setsettingsAnchor] = React.useState(null);
+
+  const settingsOpen = Boolean(settingsAnchor);
 
   /* Handles opening and closing settings */
   const handleSettingsClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setsettingsAnchor(event.currentTarget);
   };
   const handleSettingsClose = () => {
-    setAnchorEl(null);
+    setsettingsAnchor(null);
   };
+
   /* Handles theme change */
   const handleDarkModeChange = () => {
     if (themeState === 'dark') {
@@ -129,6 +86,74 @@ function CustomNavbar(props) {
     }
   };
 
+  /* Return all menu buttons of navbar*/
+  const menuButtons = () => {
+    return (
+      <Box>
+        <Link to='/'>
+          <Button
+            sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
+            color = 'nbButtons'
+            variant = 'contained'
+            startIcon={<HomeIcon />}
+            name = {'Home button'}
+            key = 'Home'>
+            <Typography variant = "h6">
+              Home
+            </Typography>
+          </Button>
+        </Link>
+        <Link to='/Projects'>
+          <Button
+            sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
+            color = 'nbButtons'
+            variant = 'contained'
+            startIcon={<WorkHistoryIcon />}
+            name = {'Projects button'}
+            key = 'Projects'>
+            <Typography variant = "h6">
+              Projects
+            </Typography>
+          </Button>
+        </Link>
+        <Link href= {resumeLink} target="_blank">
+          <Button
+            sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
+            color = 'nbButtons'
+            variant = 'contained'
+            startIcon={<ContactPageIcon />}
+            name = {'Resume button'}
+            key = 'Resume'>
+            <Typography variant = "h6">
+              Resume
+            </Typography>
+          </Button>
+        </Link>
+        <Button
+          onClick = {handleContactClick}
+          sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
+          color = 'nbButtons'
+          variant = 'contained'
+          startIcon={<QuestionAnswerIcon />}
+          name = {'Contact button'}
+          key = 'Contact'>
+          <Typography variant = "h6">
+            Contact
+          </Typography>
+        </Button>
+        {/* Contact Menu */}
+        <Menu
+          anchorEl = {contactAnchor}
+          open = {contactOpen}
+          onClose = {handleContactClose}
+          sx = {{minWidth:400}}>
+            <Typography>abhammond22@gmail.com</Typography>
+        </Menu>
+      </Box>
+    );
+  };
+  
+  /* Actual Return of navbar */
   return (
     <Box sx={{flexGrow: 1}}>
       {/* Collapsed Navbar */}
@@ -182,7 +207,7 @@ function CustomNavbar(props) {
               <SettingsIcon color = 'nbhighlight'/>
             </IconButton>
             <Menu
-              anchorEl = {anchorEl}
+              anchorEl = {settingsAnchor}
               open = {settingsOpen}
               onClose = {handleSettingsClose}>
               <MenuItem>
