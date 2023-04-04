@@ -21,6 +21,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import {Link} from 'react-router-dom';
+import {Link as MuiLink} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 
 const resumeLink = 'AdamHammondResumeNov22-4.pdf';
@@ -116,7 +117,7 @@ function CustomNavbar(props) {
             </Typography>
           </Button>
         </Link>
-        <Link href= {resumeLink} target="_blank">
+        <MuiLink href= {resumeLink} target="_blank">
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
             color = 'nbButtons'
@@ -128,7 +129,7 @@ function CustomNavbar(props) {
               Resume
             </Typography>
           </Button>
-        </Link>
+        </MuiLink>
         <Button
           onClick = {handleContactClick}
           sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
