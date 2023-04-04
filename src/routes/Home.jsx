@@ -8,7 +8,7 @@ import {Typography} from '@mui/material';
 import {leftContentBoxes, rightContentBoxes} from '../HomeContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {useTheme} from '@mui/material/styles';
-import {Link} from 'react-router-dom';
+import {Link as MUILink} from '@mui/material';
 // import {useNavigate} from "react-router-dom";
 
 const githubLink = 'https://github.com/adamhammond22';
@@ -43,16 +43,16 @@ function Home() {
             </Typography>
             <br />
             <IconButton>
-              <Link href= {githubLink} target="_blank">
+              <MUILink href= {githubLink} target="_blank">
                 <GitHubIcon sx = {{height: 40, width: 40}}
                   color = 'welcomeBoxLinks'/>
-              </Link>
+              </MUILink>
             </IconButton>
             <IconButton>
-              <Link href= {linkedInLink} target="_blank">
+              <MUILink href= {linkedInLink} target="_blank">
                 <LinkedInIcon sx = {{height: 40, width: 40}}
                   color = 'welcomeBoxLinks'/>
-              </Link>
+              </MUILink>
             </IconButton>
           </Box>
         </Box>

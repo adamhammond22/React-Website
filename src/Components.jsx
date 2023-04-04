@@ -20,7 +20,7 @@ import {ThemeStateContext} from './Contexts';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import {Link} from 'react-router-dom';
+import {Link as RouterLink} from 'react-router-dom';
 import {Link as MuiLink} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 
@@ -91,7 +91,7 @@ function CustomNavbar(props) {
   const menuButtons = () => {
     return (
       <Box>
-        <Link to='/'>
+        <RouterLink to='/'>
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
             color = 'nbButtons'
@@ -103,8 +103,8 @@ function CustomNavbar(props) {
               Home
             </Typography>
           </Button>
-        </Link>
-        <Link to='/Projects'>
+        </RouterLink>
+        <RouterLink to='/Projects'>
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
             color = 'nbButtons'
@@ -116,7 +116,7 @@ function CustomNavbar(props) {
               Projects
             </Typography>
           </Button>
-        </Link>
+        </RouterLink>
         <MuiLink href= {resumeLink} target="_blank">
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
@@ -240,17 +240,17 @@ function CustomFooter() {
       </Typography>
       <Box sx = {{width: 10}} />
       <IconButton>
-        <Link href= {linkedInLink} target="_blank">
+        <MuiLink href= {linkedInLink} target="_blank">
           <LinkedInIcon color = 'nbButtons'
             sx = {{height: 30, width: 30}}/>
-        </Link>
+        </MuiLink>
       </IconButton>
       <Box sx = {{width: 10}} />
       <IconButton>
-        <Link href= {githubLink} target="_blank">
+        <MuiLink href= {githubLink} target="_blank">
           <GitHubIcon color = 'nbButtons'
             sx = {{height: 30, width: 30}}/>
-        </Link>
+        </MuiLink>
       </IconButton>
     </Box>
   );
@@ -263,8 +263,8 @@ function CustomFooter() {
 function routingNavbar() {
   return (
     <div>
-      <Link to="/">Home</Link>
-      <Link to="/Projects">Projects</Link>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/Projects">Projects</RouterLink>
     </div>
   );
 };

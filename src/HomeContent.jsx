@@ -6,7 +6,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import IconButton from '@mui/material/IconButton';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import Link from '@mui/material/Link';
+import {Link as MuiLink} from '@mui/material';
 
 const githubLink = 'https://github.com/adamhammond22';
 const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
@@ -114,10 +114,10 @@ const rightContentBoxes = () => {
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
           <IconButton sx = {{flexShrink: 1, p: 0}}>
-            <Link href= {linkedInLink} target="_blank">
+            <MuiLink href= {linkedInLink} target="_blank">
               <LinkedInIcon color = 'secondary'
                 sx = {{p: 0, height: 30, width: 30}}/>
-            </Link>
+            </MuiLink>
           </IconButton>
           <Typography variant = "p3" sx = {{pl: 2}}>
             https://www.linkedin.com/in/adamhammond22/
@@ -126,10 +126,10 @@ const rightContentBoxes = () => {
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
           <IconButton sx = {{p: 0}}>
-            <Link href= {githubLink} target="_blank">
+            <MuiLink href= {githubLink} target="_blank">
               <GitHubIcon color = 'secondary'
                 sx = {{p: 0, height: 30, width: 30}}/>
-            </Link>
+            </MuiLink>
           </IconButton>
           <Typography variant = "p3" sx = {{pl: 2}}>
             https://github.com/adamhammond22

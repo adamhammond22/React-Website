@@ -1,14 +1,9 @@
 import React from 'react';
 import {CustomFooter} from '../Components';
 import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
-// import IconButton from '@mui/material/IconButton';
-// import {Typography} from '@mui/material';
-// import LinkedInIcon from '@mui/icons-material/LinkedIn';
-// import GitHubIcon from '@mui/icons-material/GitHub';
-// import useMediaQuery from '@mui/material/useMediaQuery';
-// import {useTheme} from '@mui/material/styles';
-// import Link from '@mui/material/Link';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import {Typography, List, ListItem, IconButton, Link as MUILink} from '@mui/material';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 /**
  * Projects Components
@@ -29,10 +24,29 @@ function Projects() {
             justifyContent: 'center',
             flexDirection: {xs: 'column', md: 'row'}}}>
             {/* project 1*/}
-            <Box backgroundColor = 'red'
-              sx = {{height: 300, width: `100%`, m: 2}}>
-            <Typography>Hello</Typography>
-            
+            <Box backgroundColor = 'primary.main' color = 'primary.contrastText' alignItems = 'center'
+              sx = {{width: `100%`, m: 2, p: 2, border: 5, borderColor: 'secondary.main'}}>
+            <Typography variant = 'h3' align = 'center'>Personal Website</Typography>
+            <List>
+              <ListItem>
+                <RadioButtonCheckedIcon sx = {{mr: 1, height: 15, width: 15}}/>
+                <Typography variant = 'p3'>Used React.js and libraries like Material UI. </Typography>
+              </ListItem>
+              <ListItem>
+                <RadioButtonCheckedIcon sx = {{mr: 1, height: 15, width: 15}}/>
+                <Typography variant = 'p3'> Utilized npm to manage and deploy the project to github pages.</Typography>
+              </ListItem>
+              <ListItem>
+                <RadioButtonCheckedIcon sx = {{mr: 1, height: 15, width: 15}}/>
+                <Typography variant = 'p3'> Purchased a custom domain and set CNAME records to direct towards github pages.</Typography>
+              </ListItem>            
+            </List>
+            <IconButton>
+              <MUILink href= "https://github.com/adamhammond22/adamhammond22.github.io" target="_blank">
+                <GitHubIcon color = 'nbButtons'
+                  sx = {{height: 30, width: 30}}/>
+              </MUILink>
+            </IconButton>
             </Box>
             {/* project 2*/}
             <Box backgroundColor = 'blue'
