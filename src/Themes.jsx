@@ -5,6 +5,7 @@ import {createTheme} from '@mui/material/styles';
  const breakpointValues = {
   values: {
     xs: 0,
+    tiny: 430,
     sm: 600,
     md: 1030,
     lg: 1200,
@@ -54,10 +55,16 @@ const typographyStyles = {
     // Normal Text
     p3: {
       fontSize: 20,
+      [nestedBreakpointsTheme.breakpoints.down("tiny")]: {
+        fontSize: 16,
+      },
     },
     // Tiny Text
     p4: {
       fontSize: 16,
+      [nestedBreakpointsTheme.breakpoints.down("tiny")]: {
+        fontSize: 12,
+      },
     },
 }
 

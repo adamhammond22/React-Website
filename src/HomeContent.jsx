@@ -1,35 +1,43 @@
+/* HomeContent holds the panels for the content in home. They are split into 2 content boxes */
 import React from 'react';
-import {Typography} from '@mui/material';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+
+import {Typography, Box, Grid, IconButton} from '@mui/material';
+import {Link as MuiLink} from '@mui/material';
+
 import EmailIcon from '@mui/icons-material/Email';
-import IconButton from '@mui/material/IconButton';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import {Link as MuiLink} from '@mui/material';
+import { BorderBottom } from '@mui/icons-material';
+
 
 const githubLink = 'https://github.com/adamhammond22';
 const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
-
 const courses = [
-  'Probability & Statistics',
-  'Computer Architecture',
-  'Comp. Systems & C Programming',
   'Full Stack Web Development',
-  'Programming Abstractions Python',
-  'Principles of Computer System Design',
-  'Intro to Computer Networks',
-  'Intro to Algorithm Analysis',
-  'Data Structures and Algorithms',
   'Natural Language Processing',
+  'Applied Machine Learning',
+  'Software Engineering',
+  'Fundamentals of Compiler Design',
+  'Comp. Systems & C Programming',
+  'Computer Architecture',
+  'Algorithm Analysis',
+  'Data Structures and Algorithms',
+  'Probability & Statistics',
+  'Principles of Computer System Design',
+  'Computer Networks',
+
+
+
 ];
 
-/* right Content Boxes*/
+/* rightContentBoxes returns JSX rendering content boxes that appear on the right */
 const rightContentBoxes = () => {
   return (
-    <Box>
+    <Box name='RightContentContainer'>
+
+      {/* About Me Box */}
       <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2}} name = 'about'>
+        sx = {{p: 3, mb: 2}} name = 'AboutMeBox'>
         <Typography variant = "h3">
         About Me
         </Typography>
@@ -40,19 +48,28 @@ const rightContentBoxes = () => {
           graduate in June 2024!
         </Typography>
       </Box>
+
+      {/* Experience Box */}
       <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2}} name = 'experience'>
+        sx = {{p: 3, mb: 2}} name = 'ExperienceBox'>
         <Typography variant = "h3" sx = {{mb: 2}}>
         Experience
         </Typography>
         {/* Box holding the 2 halves */}
-        <Box sx = {{display: 'flex',
-          flexDirection: 'row', justifyContent: 'space-between'}}>
-          {/* Left Half - Job Details further divided into 2 */}
+        <Box name='ExpSplitterBox' sx = {{display: 'flex',
+          flexDirection: {xs: 'column', tiny: 'row'}, justifyContent: 'space-between'}}>
+
+          {/* Left Half - Job Details further divided into 2
+          border and margin at the bottom replace the divider between boxes
+          so it looks likes it 'flips' when hitting breakpoint 'tiny */}
           <Box sx = {{flexGrow: 1, display: 'flex',
-            flexDirection: {xs: 'column', experiencebr: 'row'},
-            minWidth: 170}}>
-            <Box sx = {{flexGrow: 1}}>
+            flexWrap: 'wrap',
+            minWidth: 170,
+            borderBottom: {xs:5, tiny: 0},
+            marginBottom: {xs:2, tiny: 0},
+            paddingBottom: {xs:2, tiny: 0}}}>
+
+            <Box sx = {{flexGrow: 1}} name='JobNameTitleBox'>
               <Typography variant = "p3">
                 <i><b>Red Tide Games</b></i><br />
               </Typography>
@@ -60,33 +77,26 @@ const rightContentBoxes = () => {
               Junior Programmer
               </Typography>
             </Box>
-            <Box sx = {{
-              flexGrow: 1, lineHeight: 1.7}}>
-              {/* Hacked way to deal with text not aligning right without
-              align = 'right' */}
-              <Box align = 'right'
-                sx = {{display: {xs: 'none', experiencebr: 'block'}}}>
+
+            <Box name='JobLocationDatesBox' sx = {{
+              flexGrow: 1}}>
+              <Box sx = {{mt: 2, justifyContent: 'flex-end', flexDirection:'column'}}>
                 <Typography variant = "p4">
-                  May 2021 - Sept 2022<br />
-                </Typography>
-                <Typography variant = 'p4'>
-                  Santa Rosa, CA
-                </Typography>
-              </Box>
-              <Box
-                sx = {{mt: 2, display: {xs: 'block', experiencebr: 'none'}}}>
-                <Typography variant = "p4">
-                  May 2021 - Sept 2022<br />
-                </Typography>
-                <Typography variant = 'p4'>
-                  Santa Rosa, CA
+                  <Box sx={{textAlign: 'right'}}>
+                    May 2021 - Sept 2022
+                  </Box>
+                  <Box sx={{textAlign: 'right'}}>
+                    Santa Rosa, CA
+                  </Box>
                 </Typography>
               </Box>
             </Box>
           </Box>
-          {/* Spacing box between the halves */}
+  
+          {/* Spacing box between the halves, dissappears */}
           <Box backgroundColor = 'secondary.main'
-            sx = {{flexShrink: 1, minWidth: 5, ml: 4, mr: 4}}/>
+            sx = {{flexShrink: 1, minWidth: 5, ml: {xs:2, sm:4}, mr: {xs:2, sm:4},
+              display:{xs: 'none', tiny: 'flex'}}}/>
           {/* right Half - Job Description */}
           <Box sx = {{flexGrow: 1, maxWidth: 400}}>
             <Typography variant = "p4">
@@ -98,9 +108,10 @@ const rightContentBoxes = () => {
           </Box>
         </Box>
       </Box>
-      {/* Contact */}
+
+      {/* Contact Box */}
       <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2, flexDirection: 'column'}} name = 'contact'>
+        sx = {{p: 3, mb: 2, flexDirection: 'column'}} name = 'ContactBox'>
         <Typography variant = "h3">
         Contact Me!
         </Typography>
@@ -136,9 +147,10 @@ const rightContentBoxes = () => {
           </Typography>
         </Box>
       </Box>
-      {/* Coursework grid */}
+
+      {/* Coursework Box */}
       <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2}} name = 'coursework'>
+        sx = {{p: 3, mb: 2}} name = 'CourseworkBox'>
         <Typography variant = "h3" sx = {{mb: 3}}>
         Relevant Coursework
         </Typography>
@@ -158,11 +170,15 @@ const rightContentBoxes = () => {
           ))}
         </Grid>
       </Box>
+
     </Box>
   );
 };
 
-/* left Content Boxes*/
+
+
+
+/* leftContentBoxes returns JSX rendering content boxes that appear on the left */
 const leftContentBoxes = () => {
   return (
     <Box sx = {{minWidth: 400}}>
