@@ -1,38 +1,43 @@
 import React from 'react';
+
+import {Typography, Box, IconButton, useTheme} from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import {Link as MUILink} from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import {CustomFooter} from '../Components';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import {Typography} from '@mui/material';
+
 import {leftContentBoxes, rightContentBoxes} from '../HomeContent';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import {useTheme} from '@mui/material/styles';
-import {Link as MUILink} from '@mui/material';
-// import {useNavigate} from "react-router-dom";
+
 
 const githubLink = 'https://github.com/adamhammond22';
 const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
 
 /**
- * Home Component
+ * Home Component - this stores all the content on the Home Screen
  * @return {object} JSX
  */
 function Home() {
   return (
-    <Box>
-      <Box name= 'content' sx={{display: 'flex', alignItems: 'center',
+
+      /* Home Content Containter */
+      <Box name= 'HomeContentContainer' sx={{display: 'flex', alignItems: 'center',
         flexDirection: 'column'}}>
-        {/* Top Box */}
-        <Box sx={{display: 'flex', minWidth: 320, width: `calc(90%)`,
-          height: 'auto', mt: 5, flexDirection: {xs: 'column', md: 'row'},
-          p: '16px', alignItems: 'center'}}
-        backgroundColor = 'tertiary.main' name = 'greeting box'>
-          <Box component = 'img' src="adam2.jpg"
-            sx = {{ display: 'flex',
-              maxWidth: {xs: 300, sm: 413}, minWidth: 100,
+
+        {/* Greeting Container */}
+        <Box backgroundColor = 'tertiary.main' name = 'GreetingContainer'
+          sx={{display: 'flex',  width: `calc(90%)`,
+            height: 'auto', mt: 5, flexDirection: {xs: 'column', md: 'row'},
+            p: {xs: '8px', md:'16px'}, alignItems: 'center'}} >
+
+          {/* Picture Box */}
+          <Box component = 'img' src="adam2.jpg" name = 'PictureBox'
+            sx = {{ display: 'flex', maxWidth: '100%', 
               flexShrink: 1, border: 15, borderColor: 'quaternary.main'}}/>
-          <Box sx = {{pl: 5, flexShrink: 2}}>
+          
+          {/* Text Container */}
+          <Box sx = {{p: 5, flexShrink: 2}} name = 'TextContainer'>
+
+            {/* Text */}
             <Typography variant = 'p1' color = 'tertiary.contrastText'>
               Hello There! <br />
             </Typography>
@@ -42,59 +47,67 @@ function Home() {
               University of California, Santa Cruz.
             </Typography>
             <br />
+            {/* Github Icon */}
             <IconButton>
               <MUILink href= {githubLink} target="_blank">
                 <GitHubIcon sx = {{height: 40, width: 40}}
                   color = 'welcomeBoxLinks'/>
               </MUILink>
             </IconButton>
+            {/* LinkedIn Icon */}
             <IconButton>
               <MUILink href= {linkedInLink} target="_blank">
                 <LinkedInIcon sx = {{height: 40, width: 40}}
                   color = 'welcomeBoxLinks'/>
               </MUILink>
             </IconButton>
+
           </Box>
+  
         </Box>
-        {/* Main Content Box */}
-        <Box sx = {{minWidth: 320, width: `calc(90%)`,
-          mt: 2, height: 'auto'}}>
-          <MainContent name = 'main content'/>
-        </Box>
+
+        {/* Main Content Splitting Component */}
+        <MainContentSplitter />
+
       </Box>
-      <CustomFooter />
-    </Box>
   );
 }
 
 /**
- * Main Content creator
+ * Main Content Splitter
  * Splits Content into 2 or 1 column based on breakpoint
  * @return {object} JSX
  */
-function MainContent() {
-  /* We render default or narrow based on theme breakpoint */
+function MainContentSplitter() {
+  /* We render content 2 wide (default) or 1 wide (narrow) based on theme breakpoint */
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
+
   /* If md or larger, return content in 2 columns */
   if (matches) {
     return (
-      <Box name= 'content' sx={{display: 'flex',
+      /* Contains the split boxes */
+      <Box name= 'MainContentSplitter' sx={{display: 'flex', width: `calc(90%)`, mt: 2,
         justifyContent: 'space-between', flexDirection: 'row'}}>
-        <Box sx={{flexDirection: 'column', flexGrow: 5, maxWidth: 1000}}>
+
+        {/* Left Container */}
+        <Box name= 'MainContentLeft' sx={{flexDirection: 'column', flexGrow: 5, maxWidth: 1000}}>
           {rightContentBoxes()}
         </Box>
-        {/* Splitting box in middle */}
-        <Box sx={{flexDirection: 'column', flexGrow: 2, maxWidth: 400,
+
+        {/* Right Container */}
+        <Box name = 'MainContentRight' sx={{flexDirection: 'column', flexGrow: 2, maxWidth: 400,
           ml: 2}}>
           {leftContentBoxes()}
         </Box>
+
       </Box>
     );
+
   /* If small, return content in 1 column */
   } else {
     return (
-      <Box name= 'content' sx={{display: 'flex', justifyContent: 'center',
+      <Box name= 'MainContentCenter' sx={{display: 'flex', justifyContent: 'center', width: `calc(90%)`, mt: 2,
         flexDirection: 'column'}}>
         {leftContentBoxes()}
         {rightContentBoxes()}

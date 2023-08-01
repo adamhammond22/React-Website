@@ -1,5 +1,4 @@
 import React from 'react';
-import {CustomFooter} from '../Components';
 import Box from '@mui/material/Box';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {Typography, List, ListItem, IconButton, Link as MUILink} from '@mui/material';
@@ -172,8 +171,6 @@ function Projects() {
             </Box>
         </Box>
       </Box>
-      {/* Footer */}
-      <CustomFooter />
     </Box>
   );
 }

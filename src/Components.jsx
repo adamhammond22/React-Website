@@ -37,10 +37,10 @@ const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
  * @return {object} JSX
  */
 function CustomNavbar(props) {
-  /* Theme State */
+  /* Acquire themestate from parent's context */
   const {themeState, changeThemeState} = useContext(ThemeStateContext);
 
-  /* State to track if collapsed navbar open */
+  /* State to track if collapsed navbar is open */
   const [CollapsedNBOpen, setCollapsedNBOpen] = React.useState(false);
 
   /* Handles a change in collapsed NB, setting it to usable boolean */
