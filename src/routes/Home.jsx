@@ -1,16 +1,13 @@
+/* Home.jsx holds the function that returns the home content */
+
 import React from 'react';
 
-import {Typography, Box, IconButton, useTheme} from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import {Link as MUILink} from '@mui/material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import {Typography, Box, IconButton, useTheme, useMediaQuery, Link as MUILink} from '@mui/material';
+
+import {LinkedIn as LinkedInIcon, GitHub as GitHubIcon} from '@mui/icons-material';
 
 import {leftContentBoxes, rightContentBoxes} from '../HomeContent';
-
-
-const githubLink = 'https://github.com/adamhammond22';
-const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
+import { allLinks } from '../App';
 
 /**
  * Home Component - this stores all the content on the Home Screen
@@ -24,7 +21,7 @@ function Home() {
         flexDirection: 'column'}}>
 
         {/* Greeting Container */}
-        <Box backgroundColor = 'tertiary.main' name = 'GreetingContainer'
+        <Box backgroundColor = 'HomeGreetingPanel.main' name = 'GreetingContainer'
           sx={{display: 'flex',  width: `calc(90%)`,
             height: 'auto', mt: 5, flexDirection: {xs: 'column', md: 'row'},
             p: {xs: '8px', md:'16px'}, alignItems: 'center'}} >
@@ -32,16 +29,16 @@ function Home() {
           {/* Picture Box */}
           <Box component = 'img' src="adam2.jpg" name = 'PictureBox'
             sx = {{ display: 'flex', maxWidth: '100%', 
-              flexShrink: 1, border: 15, borderColor: 'quaternary.main'}}/>
+              flexShrink: 1, border: 15, borderColor: 'HomeGreetingPanel.dark'}}/>
           
           {/* Text Container */}
           <Box sx = {{p: 5, flexShrink: 2}} name = 'TextContainer'>
 
             {/* Text */}
-            <Typography variant = 'p1' color = 'tertiary.contrastText'>
+            <Typography variant = 'p1' color = 'HomeGreetingPanel.contrastText'>
               Hello There! <br />
             </Typography>
-            <Typography variant = 'p2' color = 'tertiary.contrastText'>
+            <Typography variant = 'p2' color = 'HomeGreetingPanel.contrastText'>
               I'm Adam Hammond, <br />
               I am a 3rd year Computer Science student at
               University of California, Santa Cruz.
@@ -49,16 +46,16 @@ function Home() {
             <br />
             {/* Github Icon */}
             <IconButton>
-              <MUILink href= {githubLink} target="_blank">
+              <MUILink href= {allLinks.github} target="_blank">
                 <GitHubIcon sx = {{height: 40, width: 40}}
-                  color = 'welcomeBoxLinks'/>
+                  color='HomeGreetingIcons'/>
               </MUILink>
             </IconButton>
             {/* LinkedIn Icon */}
             <IconButton>
-              <MUILink href= {linkedInLink} target="_blank">
+              <MUILink href= {allLinks.linkedin} target="_blank">
                 <LinkedInIcon sx = {{height: 40, width: 40}}
-                  color = 'welcomeBoxLinks'/>
+                  color = 'HomeGreetingIcons'/>
               </MUILink>
             </IconButton>
 

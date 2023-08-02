@@ -1,17 +1,23 @@
 /* App.jsx holds the main application */
 
 import React, {lazy, useEffect, Suspense} from 'react';
+
 import {Route, Routes} from 'react-router-dom';
 
 import {createTheme, ThemeProvider} from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { Box } from '@mui/material';
+import { Box, CssBaseline} from '@mui/material';
 
 import {darkTheme, lightTheme} from './Themes';
 import {ThemeStateContext} from './Contexts';
 import {CustomNavbar} from './Components';
 import {setLocalstorageItemAsync} from './helperFunctions';
 import {CustomFooter} from './Components';
+
+export const allLinks = {
+  github: 'https://github.com/adamhammond22',
+  linkedin: 'https://www.linkedin.com/in/adamhammond22/',
+}
+
 
 /* Lazyload the Home and Projects imports, why load both costly components when only one is ever displayed at a time? */
 const Home = lazy(() => import('./routes/Home'));

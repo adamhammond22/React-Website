@@ -1,17 +1,16 @@
 /* HomeContent holds the panels for the content in home. They are split into 2 content boxes */
+
 import React from 'react';
 
 import {Typography, Box, Grid, IconButton} from '@mui/material';
 import {Link as MuiLink} from '@mui/material';
 
-import EmailIcon from '@mui/icons-material/Email';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { BorderBottom } from '@mui/icons-material';
+import {Email as EmailIcon, LinkedIn as LinkedInIcon,
+  GitHub as GitHubIcon} from '@mui/icons-material';
 
+import { allLinks } from './App';
 
-const githubLink = 'https://github.com/adamhammond22';
-const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
+/* ============================== Static Text ============================== */
 const courses = [
   'Full Stack Web Development',
   'Natural Language Processing',
@@ -52,13 +51,16 @@ const frameworksKnown = [
   'RESTful APIs',
 ]
 
+
+/* ============================== Left Content Boxes ============================== */
+
 /* leftContentBoxes returns JSX rendering content boxes that appear on the right */
 const leftContentBoxes = () => {
   return (
     <Box name='LeftContentContainer'>
 
       {/* About Me Box */}
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
+      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
         sx = {{p: 3, mb: 2}} name = 'AboutMeBox'>
         <Typography variant = "h3">
         About Me
@@ -72,7 +74,7 @@ const leftContentBoxes = () => {
       </Box>
 
       {/* Experience Box */}
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
+      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
         sx = {{p: 3, mb: 2}} name = 'ExperienceBox'>
         <Typography variant = "h3" sx = {{mb: 2}}>
         Experience
@@ -116,7 +118,7 @@ const leftContentBoxes = () => {
           </Box>
   
           {/* Spacing box between the halves, dissappears */}
-          <Box backgroundColor = 'secondary.main'
+          <Box backgroundColor = 'HomeLeftPanel.contrastText'
             sx = {{flexShrink: 1, minWidth: 5, ml: {xs:2, sm:4}, mr: {xs:2, sm:4},
               display:{xs: 'none', tiny: 'flex'}}}/>
           {/* right Half - Job Description */}
@@ -131,15 +133,16 @@ const leftContentBoxes = () => {
         </Box>
       </Box>
 
+
       {/* Contact Box */}
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
+      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
         sx = {{p: 3, mb: 2, flexDirection: 'column'}} name = 'ContactBox'>
         <Typography variant = "h3">
         Contact Me!
         </Typography>
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
-          <EmailIcon color = 'secondary'/>
+          <EmailIcon color = 'HomeFunctionalIcons'/>
           <Typography variant = "p3" sx = {{pl: 2}}>
           abhammond22@gmail.com
           </Typography>
@@ -147,31 +150,32 @@ const leftContentBoxes = () => {
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
           <IconButton sx = {{flexShrink: 1, p: 0}}>
-            <MuiLink href= {linkedInLink} target="_blank">
-              <LinkedInIcon color = 'secondary'
+            <MuiLink href= {allLinks.linkedin} target="_blank">
+              <LinkedInIcon color = 'HomeFunctionalIcons'
                 sx = {{p: 0, height: 30, width: 30}}/>
             </MuiLink>
           </IconButton>
           <Typography variant = "p3" sx = {{pl: 2}}>
-            https://www.linkedin.com/in/adamhammond22/
+            {allLinks.linkedin}
           </Typography>
         </Box>
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
           <IconButton sx = {{p: 0}}>
-            <MuiLink href= {githubLink} target="_blank">
-              <GitHubIcon color = 'secondary'
+            <MuiLink href= {allLinks.github} target="_blank">
+              <GitHubIcon color = 'HomeFunctionalIcons'
                 sx = {{p: 0, height: 30, width: 30}}/>
             </MuiLink>
           </IconButton>
           <Typography variant = "p3" sx = {{pl: 2}}>
-            https://github.com/adamhammond22
+            {allLinks.github}
           </Typography>
         </Box>
       </Box>
 
+
       {/* Coursework Box */}
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
+      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
         sx = {{p: 3, mb: 2}} name = 'CourseworkBox'>
         <Typography variant = "h3" sx = {{mb: 3}}>
         Relevant Coursework
@@ -182,7 +186,7 @@ const leftContentBoxes = () => {
             <Grid item xs={2} sm={4} md={4} key={index}>
               <Box alignItems = 'center' justifyContent='center'
                 sx = {{p: 1, display: 'flex', minHeight: 50, border: 2,
-                  borderColor: 'secondary.main', height: 'auto',
+                  borderColor: 'HomeLeftPanel.contrastText', height: 'auto',
                   borderRadius: 4}}>
                 <Typography variant = 'p4' align = 'center'>
                   <b>{course}</b>
@@ -198,22 +202,46 @@ const leftContentBoxes = () => {
 };
 
 
-
+/* ============================== Right Content Boxes ============================== */
 
 /* rightContentBoxes returns JSX rendering content boxes that appear on the left */
 const rightContentBoxes = () => {
   return (
     <Box name='RightContentContainer'>
+
+      {/* Education Box*/}
+      <Box backgroundColor = 'HomeRightPanel.main' name = 'EducationBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h3" >
+        Education
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Box sx = {{border: 2, padding: 1, mb: 1}} >
+          <Typography variant = "p3">
+            <b>B.S. Computer Science</b><br />
+            University of California Santa Cruz<br />
+          </Typography>
+          </Box>
+          <Typography variant = "p4">
+            Graduating December 2023 (expected)<br/>
+            5x Dean’s Honors Awards<br/>
+            Cumulative GPA: 3.75
+          </Typography>
+        </Box>
+      </Box>
+
       {/* Languages Box */}
-      <Box backgroundColor = 'primary.main' name = 'LanguagesBox'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
+      <Box backgroundColor = 'HomeRightPanel.main' name = 'LanguagesBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
         <Typography variant = "h3" sx = {{mb: 1}}>
         Languages
         </Typography>
+
         {/* Left and Right side boxes */}
         <Box sx = {{display: 'flex',
           flexDirection: 'row', justifyContent: 'space-between',
           lineHeight: 1.6, mt: 2}}>
+
           {/* Left side box */}
           <Box name = 'LangagesLeft'>
             <Typography variant = "p3">
@@ -226,6 +254,7 @@ const rightContentBoxes = () => {
               })}
             </Typography>
           </Box>
+
           {/* right side box */}
           <Box align = 'right' name = 'LanguagesRight'>
             <Typography variant = "p3">
@@ -240,9 +269,11 @@ const rightContentBoxes = () => {
           </Box>
         </Box>
       </Box>
+
+
       {/* Skills Box */}
-      <Box backgroundColor = 'primary.main' name='SkillsBox'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
+      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
         <Typography variant = "h3" name = 'technologies'
           sx = {{mb: 1}}>
           Technologies
@@ -259,9 +290,11 @@ const rightContentBoxes = () => {
           </Typography>
         </Box>
       </Box>
+
+
       {/* Frameworks and Specs Box */}
-      <Box backgroundColor = 'primary.main' name = 'FrameworksSpecsBox'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
+      <Box backgroundColor = 'HomeRightPanel.main' name = 'FrameworksSpecsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
         <Typography variant = "h3" >
           Frameworks & Specs
         </Typography>
@@ -274,26 +307,6 @@ const rightContentBoxes = () => {
                     </div>
                   )
                 })}
-          </Typography>
-        </Box>
-      </Box>
-      {/* Education Box*/}
-      <Box backgroundColor = 'primary.main' name = 'EducationBox'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" >
-        Education
-        </Typography>
-        <Box sx = {{mt: 2}}>
-          <Box sx = {{border: 2, padding: 1, mb: 1}} >
-          <Typography variant = "p3">
-            <b>B.S. Computer Science</b><br />
-            University of California Santa Cruz<br />
-          </Typography>
-          </Box>
-          <Typography variant = "p4">
-            Graduating December 2023 (expected)<br/>
-            5x Dean’s Honors Awards<br/>
-            Cumulative GPA: 3.75
           </Typography>
         </Box>
       </Box>

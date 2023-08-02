@@ -1,8 +1,12 @@
+/* Projects.jsx holds the function that returns the projects content */
+
 import React from 'react';
-import Box from '@mui/material/Box';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import {Typography, List, ListItem, IconButton, Link as MUILink} from '@mui/material';
-import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+
+
+import {Box, Typography, List, ListItem, IconButton, Link as MUILink} from '@mui/material';
+
+import {GitHub as GitHubIcon, RadioButtonChecked as RadioButtonCheckedIcon} from '@mui/icons-material';
+
 
 /**
  * Projects Components

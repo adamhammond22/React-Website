@@ -1,34 +1,26 @@
+/* Components.jsx holds major jsx components like the Navbar and the Footer */
+
 import React, {useContext} from 'react';
-// import Drawer from '@mui/material/Drawer';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import AppBar from '@mui/material/AppBar';
-import {Typography} from '@mui/material';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Drawer from '@mui/material/Drawer';
-import MenuIcon from '@mui/icons-material/Menu';
-import Menu from '@mui/material/Menu';
-import Button from '@mui/material/Button';
-import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import MenuItem from '@mui/material/MenuItem';
-import ContactPageIcon from '@mui/icons-material/ContactPage';
-import Toolbar from '@mui/material/Toolbar';
-import SettingsIcon from '@mui/icons-material/Settings';
-import {ThemeStateContext} from './Contexts';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+
+import {Box, Typography, Button, Drawer, Menu, IconButton, AppBar,
+  MenuItem, Toolbar, FormGroup, FormControlLabel, Switch} from '@mui/material';
+
+import {
+  LinkedIn as LinkedInIcon, GitHub as GitHubIcon,
+  Menu as MenuIcon, QuestionAnswer as QuestionAnswerIcon,
+  WorkHistory as WorkHistoryIcon, Settings as SettingsIcon,
+  ContactPage as ContactPageIcon, Home as HomeIcon,
+} from '@mui/icons-material';
+
+/* Distinguish between link types! */
 import {Link as RouterLink} from 'react-router-dom';
 import {Link as MuiLink} from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
+
+import {ThemeStateContext} from './Contexts';
+import { allLinks } from './App';
+
 
 const resumeLink = 'AdamHammondResumeNov22-4.pdf';
-
-const githubLink = 'https://github.com/adamhammond22';
-const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
-
 
 
 /**
@@ -240,15 +232,15 @@ function CustomFooter() {
       </Typography>
       <Box sx = {{width: 10}} />
       <IconButton>
-        <MuiLink href= {linkedInLink} target="_blank">
-          <LinkedInIcon color = 'NavbarButtons'
+        <MuiLink href= {allLinks.linkedin} target="_blank">
+          <LinkedInIcon color = 'NavbarFunctionalIcons'
             sx = {{height: 30, width: 30}}/>
         </MuiLink>
       </IconButton>
       <Box sx = {{width: 10}} />
       <IconButton>
-        <MuiLink href= {githubLink} target="_blank">
-          <GitHubIcon color = 'NavbarButtons'
+        <MuiLink href= {allLinks.github} target="_blank">
+          <GitHubIcon color = 'NavbarFunctionalIcons'
             sx = {{height: 30, width: 30}}/>
         </MuiLink>
       </IconButton>

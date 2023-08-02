@@ -76,7 +76,8 @@ const darkTheme = {
   
   palette: {
     // New revised colors
-     
+  
+    /* Navbar and Footer Colors */
     NavbarBackground: { // Handles Navbar and footer background
       main: '#1f1f1f', //dark grey
       contrastText: '#fff', //clean white
@@ -87,7 +88,33 @@ const darkTheme = {
     },
     NavbarFunctionalIcons: { //Handles settings and collpsedNB
       main: '#fbe49b', //yellow
+      contrastText: '#121212', //black
     },
+  
+    /* Homepage Colors */
+    HomeLeftPanel: {
+      main: '#1F1F1F', //dark grey
+      contrastText: '#fff', //clean white
+    },
+    HomeRightPanel: {
+      main: '#1F1F1F', //dark grey
+      contrastText: '#fff', //clean white
+    },
+    HomeFunctionalIcons: {
+      main: '#BB86FC', //bright purple
+    },
+
+    HomeGreetingPanel: {
+      main: '#444444', //light grey
+      contrastText: '#fff', //clean white
+      /* Image Border Color */
+      dark: '#1F1F1F', //dark grey
+    },
+    HomeGreetingIcons: {
+      main: '#fff', //clean white
+    },
+
+
 
     // old colors
     primary: {
@@ -157,6 +184,7 @@ const lightTheme = {
   palette: {
     // New revised colors
     
+    /* Navbar and Footer Colors */
     NavbarBackground: { // Handles Navbar and footer background
       main: '#42394b',//less deep purple
       contrastText: '#fff', //clean white
@@ -168,6 +196,30 @@ const lightTheme = {
     NavbarFunctionalIcons: { //Handles settings and collpsedNB
       main: '#fbe49b', //yellow
     },
+
+    /* Homepage Colors */
+    HomeLeftPanel: {
+      main: '#3a6860', //turquoise
+      contrastText: '#fff', //clean white
+    },
+    HomeRightPanel: {
+      main: '#42394b', //less deep purple
+      contrastText: '#fff', //clean white
+    },
+    HomeFunctionalIcons: {
+      main: '#fff', //clean white
+    },
+
+    HomeGreetingPanel: {
+      main: '#fbe49b', // yellow
+      contrastText: 'black',
+      /* Image Border Color */
+      dark: '#3a6860', //turquoise
+    },
+    HomeGreetingIcons: {
+      main: '#3a6860', //turquoise
+    },
+
 
     // old colors
     primary: {
