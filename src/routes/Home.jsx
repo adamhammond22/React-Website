@@ -92,13 +92,13 @@ function MainContentSplitter() {
 
         {/* Left Container */}
         <Box name= 'MainContentLeft' sx={{flexDirection: 'column', flexGrow: 5, maxWidth: 1000}}>
-          {rightContentBoxes()}
+          {leftContentBoxes()}
         </Box>
 
         {/* Right Container */}
         <Box name = 'MainContentRight' sx={{flexDirection: 'column', flexGrow: 2, maxWidth: 400,
           ml: 2}}>
-          {leftContentBoxes()}
+          {rightContentBoxes()}
         </Box>
 
       </Box>
@@ -109,8 +109,9 @@ function MainContentSplitter() {
     return (
       <Box name= 'MainContentCenter' sx={{display: 'flex', justifyContent: 'center', width: `calc(90%)`, mt: 2,
         flexDirection: 'column'}}>
-        {leftContentBoxes()}
+        
         {rightContentBoxes()}
+        {leftContentBoxes()}
       </Box>);
   }
 };

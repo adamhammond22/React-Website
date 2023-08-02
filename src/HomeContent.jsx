@@ -25,15 +25,37 @@ const courses = [
   'Probability & Statistics',
   'Principles of Computer System Design',
   'Computer Networks',
-
-
-
 ];
+const languagesKnown = {
+  'C': 'Proficient',
+  'C++': 'Competent',
+  'Python': 'Proficient',
+  'JS, React.js': 'Proficient',
+  'HTML/CSS': 'Proficient',
+  'PostGreSQL': 'Novice',
+  
+}
+const technologiesKnown = [
+  'Windows, Unix & Linux',
+  'Command Line & Bash Scripting',
+  'Make',
+  'Docker',
+  'LaTeX',
+  'Git & Perforce',
+  'Unreal Engine 4 & 5',
+]
 
-/* rightContentBoxes returns JSX rendering content boxes that appear on the right */
-const rightContentBoxes = () => {
+const frameworksKnown = [
+  'React.js',
+  'Node.js & Express',
+  'Open API',
+  'RESTful APIs',
+]
+
+/* leftContentBoxes returns JSX rendering content boxes that appear on the right */
+const leftContentBoxes = () => {
   return (
-    <Box name='RightContentContainer'>
+    <Box name='LeftContentContainer'>
 
       {/* About Me Box */}
       <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
@@ -178,14 +200,14 @@ const rightContentBoxes = () => {
 
 
 
-/* leftContentBoxes returns JSX rendering content boxes that appear on the left */
-const leftContentBoxes = () => {
+/* rightContentBoxes returns JSX rendering content boxes that appear on the left */
+const rightContentBoxes = () => {
   return (
-    <Box sx = {{minWidth: 400}}>
+    <Box name='RightContentContainer'>
       {/* Languages Box */}
-      <Box backgroundColor = 'primary.main'
+      <Box backgroundColor = 'primary.main' name = 'LanguagesBox'
         color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'languages' sx = {{mb: 1}}>
+        <Typography variant = "h3" sx = {{mb: 1}}>
         Languages
         </Typography>
         {/* Left and Right side boxes */}
@@ -193,76 +215,85 @@ const leftContentBoxes = () => {
           flexDirection: 'row', justifyContent: 'space-between',
           lineHeight: 1.6, mt: 2}}>
           {/* Left side box */}
-          <Box name = 'languages left'>
+          <Box name = 'LangagesLeft'>
             <Typography variant = "p3">
-            C<br/>
-            C++<br/>
-            Python<br/>
-            JavaScript & React<br/>
-            HTML & CSS<br/>
-            PostgreSQL<br/>
+              {(Object.keys(languagesKnown)).map((element, index)=> {
+                return(
+                  <div key={index}>
+                    {element}
+                  </div>
+                )
+              })}
             </Typography>
           </Box>
           {/* right side box */}
-          <Box align = 'right' name = 'languages right'>
+          <Box align = 'right' name = 'LanguagesRight'>
             <Typography variant = "p3">
-            Proficient<br/>
-            Competent<br/>
-            Proficient<br/>
-            Competent<br/>
-            Competent<br/>
-            Novice<br/>
+            {(Object.values(languagesKnown)).map((element, index)=> {
+                return(
+                  <div key={index}>
+                    {element}
+                  </div>
+                )
+              })}
             </Typography>
           </Box>
         </Box>
       </Box>
       {/* Skills Box */}
-      <Box backgroundColor = 'primary.main'
+      <Box backgroundColor = 'primary.main' name='SkillsBox'
         color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
         <Typography variant = "h3" name = 'technologies'
           sx = {{mb: 1}}>
-      Technologies
+          Technologies
         </Typography>
         <Box sx = {{lineHeight: 1.6, mt: 2}}>
           <Typography variant = "p3">
-            Windows, Unix & Linux<br/>
-            Command Line & Bash Scripting<br/>
-            Make<br/>
-            Docker<br/>
-            LaTeX<br/>
-            Git & Perforce<br/>
-            Unreal Engine 4 & 5<br/>
+            {technologiesKnown.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    {element}
+                  </div>
+                )
+              })}
           </Typography>
         </Box>
       </Box>
       {/* Frameworks and Specs Box */}
-      <Box backgroundColor = 'primary.main'
+      <Box backgroundColor = 'primary.main' name = 'FrameworksSpecsBox'
         color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'frameworks and specifications'>
-      Frameworks & Specs
+        <Typography variant = "h3" >
+          Frameworks & Specs
         </Typography>
         <Box sx = {{lineHeight: 1.6, mt: 2}}>
           <Typography variant = "p3">
-            React.js<br/>
-            Node.js & Express<br/>
-            Open API<br/>
-            RESTful APIs<br/>
+            {frameworksKnown.map((element, index)=> {
+                  return(
+                    <div key={index}>
+                      {element}
+                    </div>
+                  )
+                })}
           </Typography>
         </Box>
       </Box>
-      {/* Frameworks and Specs Box */}
-      <Box backgroundColor = 'primary.main'
+      {/* Education Box*/}
+      <Box backgroundColor = 'primary.main' name = 'EducationBox'
         color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'frameworks and specifications'>
+        <Typography variant = "h3" >
         Education
         </Typography>
         <Box sx = {{mt: 2}}>
+          <Box sx = {{border: 2, padding: 1, mb: 1}} >
           <Typography variant = "p3">
             <b>B.S. Computer Science</b><br />
+            University of California Santa Cruz<br />
           </Typography>
+          </Box>
           <Typography variant = "p4">
-        University of California Santa Cruz<br/>
-        2020-2024(expected)
+            Graduating December 2023 (expected)<br/>
+            5x Dean’s Honors Awards<br/>
+            Cumulative GPA: 3.75
           </Typography>
         </Box>
       </Box>

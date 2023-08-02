@@ -34,7 +34,6 @@ const typographyStyles = {
     h6: {
       fontSize: 16,
       fontWeight: 600,
-
     },
     // "Hello There"
     p1: {
@@ -69,25 +68,32 @@ const typographyStyles = {
 }
 
 
- /* Shared component overrides between themes */
-const componentOverrides = {
-  MuiDrawer: {
-    styleOverrides: {
-      paper: {
-        background: '#42394b',
-      },
-    },
-  },
-}
+
 
 /* dark theme */
 const darkTheme = {
+
+  
   palette: {
-    type: 'light',
+    // New revised colors
+     
+    NavbarBackground: { // Handles Navbar and footer background
+      main: '#1f1f1f', //dark grey
+      contrastText: '#fff', //clean white
+    },
+    NavbarButtons: { // Handles Navbar and footer buttons
+      main: '#fff', //clean white
+      contrastText: '#121212', //black
+    },
+    NavbarFunctionalIcons: { //Handles settings and collpsedNB
+      main: '#fbe49b', //yellow
+    },
+
+    // old colors
     primary: {
       // navbar color
       // dark grey
-      main: '#1F1F1F',
+      main: '#1f1f1',
       // clean white
       contrastText: '#fff',
     },
@@ -133,14 +139,37 @@ const darkTheme = {
   },
   typography: typographyStyles,
   breakpoints: breakpointValues,
-  components: componentOverrides,
+  /* Override Drawer Background for CollapsedNB */
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          background: '#1f1f1f', //dark grey,
+        },
+      },
+    },
+  },
 };
 // https://www.color-hex.com/color-palette/1022622
 
-/* dark theme */
+/* light theme */
 const lightTheme = {
   palette: {
-    type: 'light',
+    // New revised colors
+    
+    NavbarBackground: { // Handles Navbar and footer background
+      main: '#42394b',//less deep purple
+      contrastText: '#fff', //clean white
+    },
+    NavbarButtons: { // Handles Navbar and footer buttons
+      main: '#fff', //clean white
+      contrastText: '#42394b',//less deep purple
+    },
+    NavbarFunctionalIcons: { //Handles settings and collpsedNB
+      main: '#fbe49b', //yellow
+    },
+
+    // old colors
     primary: {
       // less deep purple
       main: '#42394b',
@@ -190,7 +219,16 @@ const lightTheme = {
   },
   typography: typographyStyles,
   breakpoints: breakpointValues,
-  components: componentOverrides,
+  /* Override Drawer Background for CollapsedNB */
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          background: '#42394b',
+        },
+      },
+    },
+  },
 };
 
 export {lightTheme};

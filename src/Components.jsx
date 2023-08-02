@@ -94,7 +94,7 @@ function CustomNavbar(props) {
         <RouterLink to='/'>
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-            color = 'nbButtons'
+            color = 'NavbarButtons'
             variant = 'contained'
             startIcon={<HomeIcon />}
             name = {'Home button'}
@@ -107,7 +107,7 @@ function CustomNavbar(props) {
         <RouterLink to='/Projects'>
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-            color = 'nbButtons'
+            color = 'NavbarButtons'
             variant = 'contained'
             startIcon={<WorkHistoryIcon />}
             name = {'Projects button'}
@@ -120,7 +120,7 @@ function CustomNavbar(props) {
         <MuiLink href= {resumeLink} target="_blank">
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-            color = 'nbButtons'
+            color = 'NavbarButtons'
             variant = 'contained'
             startIcon={<ContactPageIcon />}
             name = {'Resume button'}
@@ -133,7 +133,7 @@ function CustomNavbar(props) {
         <Button
           onClick = {handleContactClick}
           sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-          color = 'nbButtons'
+          color = 'NavbarButtons'
           variant = 'contained'
           startIcon={<QuestionAnswerIcon />}
           name = {'Contact button'}
@@ -175,14 +175,14 @@ function CustomNavbar(props) {
       </Drawer>
       {/* Top Navbar */}
       <AppBar position="static"
-        color = 'primary' name = 'top navbar'>
+        color = 'NavbarBackground' name = 'top navbar'>
         <Toolbar>
           {/* Collapsed Options */}
           <IconButton sx =
             {{display: {xs: 'flex', md: 'none', padding: 0},
               fontSize: 40, height: 60, width: 60}}
-          name = 'navbar options' color = 'nbhighlight' size = 'large'
-          onClick = {handleChangeCollapsed}>
+            name = 'navbar options' color = 'NavbarFunctionalIcons' size = 'large'
+            onClick = {handleChangeCollapsed}>
             <MenuIcon sx = {{height: 40, width: 40}} />
           </IconButton>
           {/* Typography box */}
@@ -205,7 +205,7 @@ function CustomNavbar(props) {
           name = 'settings box'>
             <IconButton onClick = {handleSettingsClick}
               name = 'settings button'>
-              <SettingsIcon color = 'nbhighlight'/>
+              <SettingsIcon color = 'NavbarFunctionalIcons'/>
             </IconButton>
             <Menu
               anchorEl = {settingsAnchor}
@@ -232,8 +232,8 @@ function CustomNavbar(props) {
  */
 function CustomFooter() {
   return (
-    <Box sx = {{display: 'flex', backgroundColor: 'primary.main'}}
-      color = 'primary.contrastText' name = 'footer'
+    <Box sx = {{display: 'flex', backgroundColor: 'NavbarBackground.main'}}
+      color = 'NavbarBackground.contrastText' name = 'footer'
       alignItems = 'center' justifyContent='center'>
       <Typography variant = 'p2'>
         Adam Hammond
@@ -241,14 +241,14 @@ function CustomFooter() {
       <Box sx = {{width: 10}} />
       <IconButton>
         <MuiLink href= {linkedInLink} target="_blank">
-          <LinkedInIcon color = 'nbButtons'
+          <LinkedInIcon color = 'NavbarButtons'
             sx = {{height: 30, width: 30}}/>
         </MuiLink>
       </IconButton>
       <Box sx = {{width: 10}} />
       <IconButton>
         <MuiLink href= {githubLink} target="_blank">
-          <GitHubIcon color = 'nbButtons'
+          <GitHubIcon color = 'NavbarButtons'
             sx = {{height: 30, width: 30}}/>
         </MuiLink>
       </IconButton>
