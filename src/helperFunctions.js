@@ -11,3 +11,21 @@ export function setLocalstorageItemAsync(key, value) {
       }
     });
   }
+
+/* Helper function that returns the correct palette string for the element based on the index and type */
+/* valid types: main, contrastText, or icon */
+export function leftOrRightColor(index, type) {
+  if (index%2 === 0)
+    if (type !== 'icon') {
+      return 'ProjectLeftPanel.' + type
+    } else {
+      return 'ProjectLeftIcon'
+    }
+  else {
+    if (type !== 'icon') {
+      return 'ProjectRightPanel.' + type
+    } else {
+      return 'ProjectRightIcon'
+    }
+  }
+}

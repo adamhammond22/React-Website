@@ -146,58 +146,64 @@ function CustomNavbar(props) {
     );
   };
   
-  /* Actual Return of navbar */
+  /* ==================================== Navbar Return ==================================== */
   return (
     <Box sx={{flexGrow: 1}}>
-      {/* Collapsed Navbar */}
+  
+      {/* ================== Collapsed Navbar ================== */}
       <Drawer
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
         sx = {{xs: 'block', md: 'none', minWidth: 100}}
-        label = 'Main Navbar'
-        anchor = 'left'
-        name = 'left navbar'
-        open = {CollapsedNBOpen}
+        label = 'Main Navbar' anchor = 'left'
+        name = 'left navbar' open = {CollapsedNBOpen}
         onClose = {handleChangeCollapsed}
-        variant = 'temporary'
-        PaperProps={{sx: {width: 160}}}>
+        variant = 'temporary' PaperProps={{sx: {width: 160}}}>
+
         <IconButton />
+
         {menuButtons()}
+
       </Drawer>
-      {/* Top Navbar */}
+
+
+      {/* ================== Top Navbar ================== */}
       <AppBar position="static"
         color = 'NavbarBackground' name = 'top navbar'>
-        <Toolbar>
+        <Toolbar disableGutters={true}>
+
           {/* Collapsed Options */}
           <IconButton sx =
-            {{display: {xs: 'flex', md: 'none', padding: 0},
+            {{display: {xs: 'flex', md: 'none', padding: 0, m:0},
               fontSize: 40, height: 60, width: 60}}
             name = 'navbar options' color = 'NavbarFunctionalIcons' size = 'large'
             onClick = {handleChangeCollapsed}>
             <MenuIcon sx = {{height: 40, width: 40}} />
           </IconButton>
+
           {/* Typography box */}
           <Box sx = {{display: 'flex', flexGrow: 1,
-            justifyContent: 'left'}}name = 'typography box'>
-            <Typography component="div" sx={{fontSize: {xs: 30, sm: 55},
-              display: 'flex'}}>
+            justifyContent: {xs:'center', md:'left'}, flexWrap: 'wrap'}} name = 'typography box'>
+            <Typography variant='h2'>
               Adam Hammond
             </Typography>
           </Box>
+
           {/* Button Box */}
           <Box sx = {{flexGrow: 2, justifyContent: 'flex-end',
             display: {xs: 'none', md: 'flex'}}} name = 'button box'>
             {/* Buttons Box*/}
             {menuButtons()}
           </Box>
+  
           {/* Settings Box*/}
-          <Box sx = {{flexShrink: 1, mr: 2,
+          <Box sx = {{flexShrink: 1, mr: {xs:7, md:8},
             width: 0, justifyContent: 'flex-end'}}
-          name = 'settings box'>
-            <IconButton onClick = {handleSettingsClick}
+            name = 'settings box'>
+            <IconButton sx={{height: 60, width: 60 }}onClick = {handleSettingsClick}
               name = 'settings button'>
-              <SettingsIcon color = 'NavbarFunctionalIcons'/>
+              <SettingsIcon sx = {{height: 30, width: 30}} color = 'NavbarFunctionalIcons'/>
             </IconButton>
             <Menu
               anchorEl = {settingsAnchor}
@@ -212,8 +218,10 @@ function CustomNavbar(props) {
               </MenuItem>
             </Menu>
           </Box>
+
         </Toolbar>
       </AppBar>
+
     </Box>
   );
 };
@@ -227,7 +235,7 @@ function CustomFooter() {
     <Box sx = {{display: 'flex', backgroundColor: 'NavbarBackground.main'}}
       color = 'NavbarBackground.contrastText' name = 'footer'
       alignItems = 'center' justifyContent='center'>
-      <Typography variant = 'p2'>
+      <Typography variant = "h3">
         Adam Hammond
       </Typography>
       <Box sx = {{width: 10}} />

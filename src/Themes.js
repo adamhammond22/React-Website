@@ -1,5 +1,6 @@
 import {createTheme} from '@mui/material/styles';
 
+/* ============================== Shared Values============================== */
 
  /* Shared Breakpoint Values between themes */
  const breakpointValues = {
@@ -22,15 +23,24 @@ const nestedBreakpointsTheme = createTheme(
 
  /* Shared Typography between themes */
 const typographyStyles = {
-    // Main name
+    // Top Name font
     h2: {
       fontSize: 55,
+      [nestedBreakpointsTheme.breakpoints.only("tiny")]: {
+        fontSize: 35,
+      },
+      [nestedBreakpointsTheme.breakpoints.down("tiny")]: {
+        fontSize: 25,
+      },
     },
     // Box headers
     h3: {
       fontSize: 30,
+      [nestedBreakpointsTheme.breakpoints.down("tiny")]: {
+        fontSize: 25,
+      },
     },
-    // Buttons
+    // Navbar Buttons
     h6: {
       fontSize: 16,
       fontWeight: 600,
@@ -68,15 +78,10 @@ const typographyStyles = {
 }
 
 
-
-
-/* dark theme */
+/* ============================== Dark Theme ============================== */
 const darkTheme = {
-
-  
   palette: {
-    // New revised colors
-  
+
     /* Navbar and Footer Colors */
     NavbarBackground: { // Handles Navbar and footer background
       main: '#1f1f1f', //dark grey
@@ -114,55 +119,30 @@ const darkTheme = {
       main: '#fff', //clean white
     },
 
+    /* Project Colors */
+    ProjectMainContainer: {
+      main: '#1f1f1f', //dark grey
+    },
+    ProjectLeftPanel: {
+      main: '#1f1f1f', //dark grey
+      contrastText: '#fff', //clean white
+    },
+    ProjectLeftIcon: {
+      main: '#BB86FC', //bright purple
+    },
+    ProjectRightPanel: {
+      main: '#444444', //light grey
+      contrastText: '#fff', //clean white
+    },    
+    ProjectRightIcon: {
+      main: '#BB86FC', //bright purple
+    },
 
-
-    // old colors
-    primary: {
-      // navbar color
-      // dark grey
-      main: '#1f1f1',
-      // clean white
-      contrastText: '#fff',
-    },
-    secondary: {
-      // cream white
-      main: '#BB86FC',
-      // deep purple
-      contrastText: '#1F1F1F',
-    },
-    tertiary: {
-      // yellow
-      main: '#444444',
-      // clean white
-      contrastText: '#fff',
-    },
+    /* Background Color */
     background: {
       default: '#121212',
     },
-    quaternary: {
-      // turqoise
-      main: '#1F1F1F',
-      contrastText: '#fff',
-    },
-    nbButtons: {
-      // bright purple
-      main: '#BB86FC',
-      // black
-      contrastText: '#1F1F1F',
-    },
-    nbButtonsALT: {
-      // bright purple
-      main: '#BB86FC',
-      // black
-      contrastText: '#1F1F1F',
-    },
-    nbhighlight: {
-      // highlight colors for settings & collapsenb
-      main: '#BB86FC',
-    },
-    welcomeBoxLinks: {
-      main: '#BB86FC',
-    },
+
   },
   typography: typographyStyles,
   breakpoints: breakpointValues,
@@ -179,11 +159,13 @@ const darkTheme = {
 };
 // https://www.color-hex.com/color-palette/1022622
 
-/* light theme */
+
+
+
+/* ============================== Light Theme ============================== */
 const lightTheme = {
   palette: {
-    // New revised colors
-    
+
     /* Navbar and Footer Colors */
     NavbarBackground: { // Handles Navbar and footer background
       main: '#42394b',//less deep purple
@@ -220,54 +202,30 @@ const lightTheme = {
       main: '#3a6860', //turquoise
     },
 
-
-    // old colors
-    primary: {
-      // less deep purple
-      main: '#42394b',
-      // clean white
-      contrastText: '#fff',
+    /* Project Colors */
+    ProjectMainContainer: {
+      main: '#3a6860', //turqoise
     },
-    secondary: {
-      // cream white
-      main: '#faf4ec',
-      // deep purple
-      contrastText: '#31293b',
+    ProjectLeftPanel: {
+      main: '#42394b', // less deep purple
+      contrastText: '#fff', //clean white
     },
-    tertiary: {
-      // yellow
-      main: '#fbe49b',
-      // black
+    ProjectLeftIcon: {
+      main: '#fff', //clean white
+    },
+    ProjectRightPanel: {
+      main: '#fbe49b', //yellow
       contrastText: 'black',
+    },    
+    ProjectRightIcon: {
+      main: 'black',
     },
+
+    /* Background Color */
     background: {
       default: '#faf4ec',
     },
-    quaternary: {
-      // turqoise
-      main: '#3a6860',
-      contrastText: '#fff',
-    },
-    nbButtons: {
-      // clean white
-      main: '#fff',
-      // deep purple
-      contrastText: '#31293b',
-    },
-    nbButtonsALT: {
-      // black
-      main: 'black',
-      // deep purple
-      contrastText: '#31293b',
-    },
-    nbhighlight: {
-      // highlight colors for settings & collapsenb
-      // yellow
-      main: '#fbe49b',
-    },
-    welcomeBoxLinks: {
-      main: '#42394b',
-    },
+
   },
   typography: typographyStyles,
   breakpoints: breakpointValues,
