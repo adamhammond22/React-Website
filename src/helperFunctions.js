@@ -1,8 +1,9 @@
-/* helperFunctions.js holds micelanneous helper functions to de-clutter various modules */
+/* helperFunctions.js holds a variety of helper functions to de-clutter various modules */
 
 import { allLinks } from "./App";
 
-/* setItemAsync takes a key and value, and asynchronous */
+/* setItemAsync takes a key and value, and asynchronously sets the storage.
+  this is used for storing the theme mode */
 export function setLocalstorageItemAsync(key, value) {
     return new Promise((resolve, reject) => {
       try {
@@ -14,7 +15,8 @@ export function setLocalstorageItemAsync(key, value) {
     });
 }
 
-/* Helper function that returns the correct palette string for the element based on the index and type */
+/* Helper function that returns the correct palette string for the element based on the index and type.
+  this is used for Projects to render the desired color for the panels.*/
 /* valid types: main, contrastText, or icon */
 export function leftOrRightColor(index, type) {
   if (index%2 === 0)

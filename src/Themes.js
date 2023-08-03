@@ -1,3 +1,5 @@
+/* Themes.js defines our themes lightmode and darkmode */
+
 import {createTheme} from '@mui/material/styles';
 
 /* ============================== Shared Values============================== */
@@ -10,8 +12,6 @@ import {createTheme} from '@mui/material/styles';
     sm: 600,
     md: 1030,
     lg: 1200,
-    // kind of hack-ey way to break experience
-    experiencebr: 1430,
     xl: 1536,
   },
 }
@@ -117,11 +117,16 @@ const darkTheme = {
       main: '#BB86FC', //bright purple
       contrastText: '#121212', //black
     },
+    NavbarContactListIcons: { // For the icons in the navbar list
+      main: '#1f1f1f', //dark grey
+    },
   
     /* Homepage Colors */
     HomeLeftPanel: {
       main: '#1F1F1F', //dark grey
       contrastText: '#fff', //clean white
+      /* For the Border around the degree */
+      light: '#BB86FC', //bright purple
     },
     HomeRightPanel: {
       main: '#1F1F1F', //dark grey
@@ -130,7 +135,6 @@ const darkTheme = {
     HomeFunctionalIcons: {
       main: '#BB86FC', //bright purple
     },
-
     HomeGreetingPanel: {
       main: '#444444', //light grey
       contrastText: '#fff', //clean white
@@ -138,7 +142,7 @@ const darkTheme = {
       dark: '#1F1F1F', //dark grey
     },
     HomeGreetingIcons: {
-      main: '#fff', //clean white
+      main: '#BB86FC', //bright purple
     },
 
     /* Project Colors */
@@ -166,6 +170,8 @@ const darkTheme = {
     },
 
   },
+
+  /* Shared styles & values */
   typography: typographyStyles,
   breakpoints: breakpointValues,
  
@@ -188,9 +194,6 @@ const darkTheme = {
     }
   },
 };
-// https://www.color-hex.com/color-palette/1022622
-
-
 
 
 /* ============================== Light Theme ============================== */
@@ -209,11 +212,16 @@ const lightTheme = {
     NavbarFunctionalIcons: { //Handles settings and collpsedNB
       main: '#fbe49b', //yellow
     },
-
+    NavbarContactListIcons: { // For the icons in the navbar list
+      main: '#42394b',//less deep purple
+    },
+  
     /* Homepage Colors */
     HomeLeftPanel: {
       main: '#42394b', //less deep purple
       contrastText: '#fff', //clean white
+      /* For the Border around the degree */
+      light: '#fbe49b', //yellow
     },
     HomeRightPanel: {
       main: '#fbe49b', //yellow
@@ -222,7 +230,6 @@ const lightTheme = {
     HomeFunctionalIcons: {
       main: '#fff', //clean white
     },
-
     HomeGreetingPanel: {
       main: '#fbe49b', //yellow
       contrastText: 'black',
@@ -258,8 +265,11 @@ const lightTheme = {
     },
 
   },
+
+  /* Shared styles & values */
   typography: typographyStyles,
   breakpoints: breakpointValues,
+
   /* Override Drawer Background for CollapsedNB */
   components: {
     MuiDrawer: {

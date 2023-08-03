@@ -145,7 +145,7 @@ function CustomNavbar(props) {
               sx={{height:'auto', width:250}}>
               {/* Email Item */}
               <MenuItem onClick={() => handleCopyEmailToClipboard()}>
-                <EmailIcon color ='NavbarFunctionalIcons' sx={{height:20, width:20, mr:1}}/>
+                <EmailIcon color ='NavbarContactListIcons' sx={{height:20, width:20, mr:1}}/>
                 <Typography variant='p4' color='NavbarButtons.contrastText'>
                   {allLinks.email}
                 </Typography>
@@ -154,7 +154,7 @@ function CustomNavbar(props) {
               {/* Github Item */}
               <MuiLink href= {allLinks.github} target="_blank">
                 <MenuItem>
-                  <GitHubIcon color ='NavbarFunctionalIcons' sx={{height:20, width:20, mr:1}}/>
+                  <GitHubIcon color ='NavbarContactListIcons' sx={{height:20, width:20, mr:1}}/>
                   <Typography variant='p4' color='NavbarButtons.contrastText'>
                     Github Profile
                   </Typography>
@@ -164,7 +164,7 @@ function CustomNavbar(props) {
               {/* Linkedin Item */}
               <MuiLink href= {allLinks.linkedin} target="_blank">
                 <MenuItem>
-                  <LinkedInIcon color ='NavbarFunctionalIcons' sx={{height:20, width:20, mr:1}}/>
+                  <LinkedInIcon color ='NavbarContactListIcons' sx={{height:20, width:20, mr:1}}/>
                   <Typography variant='p4' color='NavbarButtons.contrastText'>
                     LinkedIn Profile
                   </Typography>

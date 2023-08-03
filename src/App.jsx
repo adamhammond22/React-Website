@@ -20,7 +20,8 @@ export const allLinks = {
 }
 
 
-/* Lazyload the Home and Projects imports, why load both costly components when only one is ever displayed at a time? */
+/* Lazyload the Home and Projects imports, why load both costly components
+  when only one is ever displayed at a time? */
 const Home = lazy(() => import('./routes/Home'));
 const Projects = lazy(() => import('./routes/Projects'));
 

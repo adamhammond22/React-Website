@@ -87,7 +87,7 @@ const leftContentBoxes = () => {
         Education
         </Typography>
         <Box sx = {{mt: 2}}>
-          <Box sx = {{border: 2, padding: 1, mb: 1}} >
+          <Box sx = {{border: 2, padding: 1, mb: 1, borderColor: 'HomeLeftPanel.light'}} >
           <Typography variant = "p3">
             <b>B.S. Computer Science</b><br />
             University of California Santa Cruz<br />
