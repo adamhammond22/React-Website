@@ -16,6 +16,7 @@ import {CustomFooter} from './Components';
 export const allLinks = {
   github: 'https://github.com/adamhammond22',
   linkedin: 'https://www.linkedin.com/in/adamhammond22/',
+  email: 'abhammond22@gmail.com',
 }
 
 
@@ -48,7 +49,6 @@ function App() {
     setLocalstorageItemAsync('themeState', themeState)
     .catch(error => console.error('Error setting the themeState:', error));
   }, [themeState]);
-
 
   /* ========== Helpers ========== */
 

@@ -168,8 +168,9 @@ const darkTheme = {
   },
   typography: typographyStyles,
   breakpoints: breakpointValues,
-  /* Override Drawer Background for CollapsedNB */
+ 
   components: {
+     /* Override Drawer Background for CollapsedNB */
     MuiDrawer: {
       styleOverrides: {
         paper: {
@@ -177,6 +178,14 @@ const darkTheme = {
         },
       },
     },
+     /* Override Menu Background for Settings and Contact */
+    MuiMenu:{
+      styleOverrides: {
+        paper: {
+          background:  '#fff', //clean white
+        },
+      },      
+    }
   },
 };
 // https://www.color-hex.com/color-palette/1022622
@@ -260,6 +269,14 @@ const lightTheme = {
         },
       },
     },
+     /* Override Menu Background for Settings and Contact */
+     MuiMenu:{
+      styleOverrides: {
+        paper: {
+          background:  '#fff', //clean white
+        },
+      },      
+    }
   },
 };
 

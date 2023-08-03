@@ -14,6 +14,7 @@ import { allLinks } from '../App';
  * @return {object} JSX
  */
 function Home() {
+
   return (
 
       /* Home Content Containter */

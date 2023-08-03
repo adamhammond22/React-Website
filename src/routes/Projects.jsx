@@ -21,6 +21,21 @@ const allProjects = {
       'Purchased a custom domain and set CNAME records to direct towards github pages.'],
     link: 'https://github.com/adamhammond22/adamhammond22.github.io'
   },
+  'iCook Cookbook Application ': {
+    bullets: [
+      'Worked in an agile team of 6 UCSC students, strictly adhering to the Scrum methodology.',
+      'The project contains our relevant Scrum documents: Release Planning, Sprint planning, Scrum board, burnup chart, and more',
+      'React Native application running on Android & iOS using SQLite for local storage.'],
+    link: 'https://github.com/adamhammond22/meal_planner'
+  },
+  'Machine Learning sleep classifier application ': {
+    bullets: [
+      'Built a RNN machine learning model and packaged it with a simple Python GUI',
+      'Built in Python, with support from libraries like Pandas, SkLearn, Tkinter, and more.',
+      'Worked closely with Neuroscience researchers to understand their needs and pitch a relevant application trained by their data.',
+      'Classifies long periods of mouse EEG and EMG data to assist UCSC Neuroscience researchers in processing data.'],
+    link: 'https://github.com/audsostrom/mice-sleep-analysis'
+  },
   'Neuroscience Excel Formatting': {
     bullets: [
       'Formats raw data from BORIS behavior analysis software into usable excel spreadsheet for UCSC Neuroscience Lab',

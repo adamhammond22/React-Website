@@ -70,13 +70,13 @@ const leftContentBoxes = () => {
         </Typography>
         <Typography variant = "p3" sx={{lineHeight: 2}}>
           I'm interested in SWE, Full Stack Web Dev, Machine Learning,
-          Computer Networks, System Design, Project Management, Algorithm  Analysis and more!<br/><br/>
+          Computer Networks, System Design, Project Management, Algorithm  Analysis and more.<br/><br/>
           I'm currently looking for an internship related to Software Development, or any of my afformentioned interests.
           I am graduating 2 quarters early on December 8th 2023, and I will be available full-time from then on!
           I have experience developing software in teams, and I've practiced Agile development (Scrum). <br/><br/>
-          On a personal note: I enjoy rock climbing, hiking, surfing, music, and of course - coding!<br/>
+          On a personal note: I enjoy rock climbing, hiking, surfing, music, and of course — coding!<br/>
           I've always loved solving problems in organized and creative ways, and I hope to find a job where I can do just that.<br/><br/>
-          Feel free to reach out for any reason! You can find my contact information below!<br/><br/>
+          Feel free to reach out for any reason, you can find my contact information below!<br/><br/>
         </Typography>
       </Box>
 
@@ -172,7 +172,7 @@ const leftContentBoxes = () => {
           alignItems = 'center'>
           <EmailIcon color = 'HomeFunctionalIcons'/>
           <Typography variant = "p3" sx = {{pl: 2}}>
-          abhammond22@gmail.com
+          {allLinks.email}
           </Typography>
         </Box>
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
@@ -264,7 +264,7 @@ const rightContentBoxes = () => {
             {conceptsKnown.map((element, index)=> {
                 return(
                   <div key={index}>
-                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
                   </div>
                 )
               })}
@@ -285,7 +285,7 @@ const rightContentBoxes = () => {
             {technologiesAndDataManagament.map((element, index)=> {
                 return(
                   <div key={index}>
-                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
                   </div>
                 )
               })}
@@ -306,7 +306,7 @@ const rightContentBoxes = () => {
             {frameworksAndLibraries.map((element, index)=> {
                 return(
                   <div key={index}>
-                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
                   </div>
                 )
               })}
@@ -327,7 +327,7 @@ const rightContentBoxes = () => {
             {versionControlAndAutomation.map((element, index)=> {
                 return(
                   <div key={index}>
-                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
                   </div>
                 )
               })}
@@ -346,7 +346,7 @@ const rightContentBoxes = () => {
             {markupAndFormatting.map((element, index)=> {
                 return(
                   <div key={index}>
-                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
                   </div>
                 )
               })}

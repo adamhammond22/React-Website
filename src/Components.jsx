@@ -7,6 +7,7 @@ import {Box, Typography, Button, Drawer, Menu, IconButton, AppBar,
 
 import {
   LinkedIn as LinkedInIcon, GitHub as GitHubIcon,
+  Email as EmailIcon,
   Menu as MenuIcon, QuestionAnswer as QuestionAnswerIcon,
   WorkHistory as WorkHistoryIcon, Settings as SettingsIcon,
   ContactPage as ContactPageIcon, Home as HomeIcon,
@@ -18,9 +19,9 @@ import {Link as MuiLink} from '@mui/material';
 
 import {ThemeStateContext} from './Contexts';
 import { allLinks } from './App';
+import { handleCopyEmailToClipboard } from './helperFunctions';
 
-
-const resumeLink = 'AdamHammondResumeNov22-4.pdf';
+const resumeLink = 'AdamHammondResumeAug2.pdf';
 
 
 /**
@@ -135,12 +136,41 @@ function CustomNavbar(props) {
           </Typography>
         </Button>
         {/* Contact Menu */}
-        <Menu
+        <Menu backgroundcolor='NavbarBackground.main'
           anchorEl = {contactAnchor}
           open = {contactOpen}
           onClose = {handleContactClose}
-          sx = {{minWidth:400}}>
-            <Typography>abhammond22@gmail.com</Typography>
+          sx = {{width: 600}}>
+            <Box  color='HomeGreetingIcons' backgroundcolor='NavbarButtons.main'
+              sx={{height:'auto', width:250}}>
+              {/* Email Item */}
+              <MenuItem onClick={() => handleCopyEmailToClipboard()}>
+                <EmailIcon color ='NavbarFunctionalIcons' sx={{height:20, width:20, mr:1}}/>
+                <Typography variant='p4' color='NavbarButtons.contrastText'>
+                  {allLinks.email}
+                </Typography>
+              </MenuItem>
+
+              {/* Github Item */}
+              <MuiLink href= {allLinks.github} target="_blank">
+                <MenuItem>
+                  <GitHubIcon color ='NavbarFunctionalIcons' sx={{height:20, width:20, mr:1}}/>
+                  <Typography variant='p4' color='NavbarButtons.contrastText'>
+                    Github Profile
+                  </Typography>
+                </MenuItem>
+              </MuiLink>
+
+              {/* Linkedin Item */}
+              <MuiLink href= {allLinks.linkedin} target="_blank">
+                <MenuItem>
+                  <LinkedInIcon color ='NavbarFunctionalIcons' sx={{height:20, width:20, mr:1}}/>
+                  <Typography variant='p4' color='NavbarButtons.contrastText'>
+                    LinkedIn Profile
+                  </Typography>
+                </MenuItem>
+              </MuiLink>
+            </Box>
         </Menu>
       </Box>
     );
@@ -211,9 +241,17 @@ function CustomNavbar(props) {
               onClose = {handleSettingsClose}>
               <MenuItem>
                 <FormGroup>
-                  <FormControlLabel control={<Switch
+                  <FormControlLabel control={
+                  <Switch
                     checked = {themeState === 'dark'}
-                    onChange = {handleDarkModeChange}/>} label="Dark Mode" />
+                    sx = {{color: 'green'}}
+                    onChange = {handleDarkModeChange}/>
+                  }
+                    label={
+                    <Typography variant="p4" color="NavbarButtons.contrastText">
+                      <b>Dark Mode</b>
+                    </Typography>
+                    }/>
                 </FormGroup>
               </MenuItem>
             </Menu>
