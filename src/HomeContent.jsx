@@ -1,58 +1,127 @@
+/* HomeContent holds the panels for the content in home. For now they're split into left and right,
+  with the subcategory "education and languages" */
+
 import React from 'react';
-import {Typography} from '@mui/material';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import EmailIcon from '@mui/icons-material/Email';
-import IconButton from '@mui/material/IconButton';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+
+import {Typography, Box, Grid, IconButton} from '@mui/material';
 import {Link as MuiLink} from '@mui/material';
 
-const githubLink = 'https://github.com/adamhammond22';
-const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
+import {Email as EmailIcon, LinkedIn as LinkedInIcon,
+  GitHub as GitHubIcon, Circle as CircleIcon} from '@mui/icons-material';
 
+import { allLinks } from './App';
+
+/* ============================== Static Text ============================== */
 const courses = [
-  'Probability & Statistics',
-  'Computer Architecture',
-  'Comp. Systems & C Programming',
   'Full Stack Web Development',
-  'Programming Abstractions Python',
-  'Principles of Computer System Design',
-  'Intro to Computer Networks',
-  'Intro to Algorithm Analysis',
-  'Data Structures and Algorithms',
   'Natural Language Processing',
+  'Applied Machine Learning',
+  'Software Engineering',
+  'Fundamentals of Compiler Design',
+  'Comp. Systems & C Programming',
+  'Computer Architecture',
+  'Algorithm Analysis',
+  'Data Structures and Algorithms',
+  'Probability & Statistics',
+  'Principles of Computer System Design',
+  'Computer Networks',
 ];
+const languagesKnown = {
+  'C': 'Proficient',
+  'C++': 'Competent',
+  'Python': 'Proficient',
+  'JavaScript': 'Proficient',
+  'SQL': 'Competent',
+}
 
-/* right Content Boxes*/
-const rightContentBoxes = () => {
+const conceptsKnown = [
+  'Machine Learning', 'Data Structures', 'Algorithm Analysis',
+  'Full Stack Web Development']
+
+const technologiesAndDataManagament = [
+  'PostgreSQL', 'SQLite', 'Docker',
+  'Expo', 'Unreal Engine']
+
+const frameworksAndLibraries =  [
+  'React.js', 'React Native', 'Node.js',
+  'Express.js', 'RESTful APIs', 'Pandas',
+  'Sklearn']
+
+const versionControlAndAutomation = [
+  'Git', 'Github', 'Perforce',
+  'Windows Batch & Bash Scripting', 'Make']
+
+const markupAndFormatting = [
+  'HTML',  'CSS', 'LaTeX',
+  'Markdown']
+
+/* ============================== Left Content Boxes ============================== */
+
+/* leftContentBoxes returns JSX rendering content boxes that appear on the right */
+const leftContentBoxes = () => {
   return (
-    <Box>
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2}} name = 'about'>
-        <Typography variant = "h3">
+    <Box name='LeftContentContainer'>
+
+      {/* About Me Box */}
+      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
+        sx = {{p: 3, mb: 2}} name = 'AboutMeBox'>
+        <Typography sx={{mb:2}}variant = "h3">
         About Me
         </Typography>
-        <Typography variant = "p3">
-          I'm interested in Algorithems, Systems, Machine Learning,
-          Networking, and more! I'm currently looking for a 2023
-          Summer Internship, as well as opportunities after I
-          graduate in June 2024!
+        <Typography variant = "p3" sx={{lineHeight: 2}}>
+          I'm interested in SWE, Full Stack Web Dev, Machine Learning,
+          Computer Networks, System Design, Project Management, Algorithm  Analysis and more.<br/><br/>
+          I'm currently looking for an internship related to Software Development, or any of my afformentioned interests.
+          I am graduating 2 quarters early on December 8th 2023, and I will be available full-time from then on!
+          I have experience developing software in teams, and I've practiced Agile development (Scrum). <br/><br/>
+          On a personal note: I enjoy rock climbing, hiking, surfing, music, and of course — coding!<br/>
+          I've always loved solving problems in organized and creative ways, and I hope to find a job where I can do just that.<br/><br/>
+          Feel free to reach out for any reason, you can find my contact information below!<br/><br/>
         </Typography>
       </Box>
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2}} name = 'experience'>
+
+      {/* Education Box*/}
+      <Box backgroundColor = 'HomeLeftPanel.main' name = 'EducationBox'
+        color = 'HomeLeftPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h3" >
+        Education
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Box sx = {{border: 2, padding: 1, mb: 1, borderColor: 'HomeLeftPanel.light'}} >
+          <Typography variant = "p3">
+            <b>B.S. Computer Science</b><br />
+            University of California Santa Cruz<br />
+          </Typography>
+          </Box>
+          <Typography variant = "p4">
+            Graduating December 2023 (expected)<br/>
+            5x Dean’s Honors Awards<br/>
+            Cumulative GPA: 3.75
+          </Typography>
+        </Box>
+      </Box>
+
+      {/* Experience Box */}
+      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
+        sx = {{p: 3, mb: 2}} name = 'ExperienceBox'>
         <Typography variant = "h3" sx = {{mb: 2}}>
         Experience
         </Typography>
         {/* Box holding the 2 halves */}
-        <Box sx = {{display: 'flex',
-          flexDirection: 'row', justifyContent: 'space-between'}}>
-          {/* Left Half - Job Details further divided into 2 */}
+        <Box name='ExpSplitterBox' sx = {{display: 'flex',
+          flexDirection: {xs: 'column', tiny: 'row'}, justifyContent: 'space-between'}}>
+
+          {/* Left Half - Job Details further divided into 2
+          border and margin at the bottom replace the divider between boxes
+          so it looks likes it 'flips' when hitting breakpoint 'tiny */}
           <Box sx = {{flexGrow: 1, display: 'flex',
-            flexDirection: {xs: 'column', experiencebr: 'row'},
-            minWidth: 170}}>
-            <Box sx = {{flexGrow: 1}}>
+            flexWrap: 'wrap',
+            minWidth: 170,
+            borderBottom: {xs:5, tiny: 0},
+            marginBottom: {xs:2, tiny: 0},
+            paddingBottom: {xs:2, tiny: 0}}}>
+
+            <Box sx = {{flexGrow: 1}} name='JobNameTitleBox'>
               <Typography variant = "p3">
                 <i><b>Red Tide Games</b></i><br />
               </Typography>
@@ -60,33 +129,26 @@ const rightContentBoxes = () => {
               Junior Programmer
               </Typography>
             </Box>
-            <Box sx = {{
-              flexGrow: 1, lineHeight: 1.7}}>
-              {/* Hacked way to deal with text not aligning right without
-              align = 'right' */}
-              <Box align = 'right'
-                sx = {{display: {xs: 'none', experiencebr: 'block'}}}>
+
+            <Box name='JobLocationDatesBox' sx = {{
+              flexGrow: 1}}>
+              <Box sx = {{mt: 2, justifyContent: 'flex-end', flexDirection:'column'}}>
                 <Typography variant = "p4">
-                  May 2021 - Sept 2022<br />
-                </Typography>
-                <Typography variant = 'p4'>
-                  Santa Rosa, CA
-                </Typography>
-              </Box>
-              <Box
-                sx = {{mt: 2, display: {xs: 'block', experiencebr: 'none'}}}>
-                <Typography variant = "p4">
-                  May 2021 - Sept 2022<br />
-                </Typography>
-                <Typography variant = 'p4'>
-                  Santa Rosa, CA
+                  <Box sx={{textAlign: 'right'}}>
+                    May 2021 - Sept 2022
+                  </Box>
+                  <Box sx={{textAlign: 'right'}}>
+                    Santa Rosa, CA
+                  </Box>
                 </Typography>
               </Box>
             </Box>
           </Box>
-          {/* Spacing box between the halves */}
-          <Box backgroundColor = 'secondary.main'
-            sx = {{flexShrink: 1, minWidth: 5, ml: 4, mr: 4}}/>
+  
+          {/* Spacing box between the halves, dissappears */}
+          <Box backgroundColor = 'HomeLeftPanel.contrastText'
+            sx = {{flexShrink: 1, minWidth: 5, ml: {xs:2, sm:4}, mr: {xs:2, sm:4},
+              display:{xs: 'none', tiny: 'flex'}}}/>
           {/* right Half - Job Description */}
           <Box sx = {{flexGrow: 1, maxWidth: 400}}>
             <Typography variant = "p4">
@@ -98,162 +160,236 @@ const rightContentBoxes = () => {
           </Box>
         </Box>
       </Box>
-      {/* Contact */}
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2, flexDirection: 'column'}} name = 'contact'>
+
+
+      {/* Contact Box */}
+      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
+        sx = {{p: 3, mb: 2, flexDirection: 'column'}} name = 'ContactBox'>
         <Typography variant = "h3">
         Contact Me!
         </Typography>
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
-          <EmailIcon color = 'secondary'/>
+          <EmailIcon color = 'HomeFunctionalIcons'/>
           <Typography variant = "p3" sx = {{pl: 2}}>
-          abhammond22@gmail.com
+          {allLinks.email}
           </Typography>
         </Box>
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
           <IconButton sx = {{flexShrink: 1, p: 0}}>
-            <MuiLink href= {linkedInLink} target="_blank">
-              <LinkedInIcon color = 'secondary'
+            <MuiLink href= {allLinks.linkedin} target="_blank">
+              <LinkedInIcon color = 'HomeFunctionalIcons'
                 sx = {{p: 0, height: 30, width: 30}}/>
             </MuiLink>
           </IconButton>
           <Typography variant = "p3" sx = {{pl: 2}}>
-            https://www.linkedin.com/in/adamhammond22/
+            {allLinks.linkedin}
           </Typography>
         </Box>
         <Box sx = {{minHeight: 50, display: 'flex', flexDirection: 'row'}}
           alignItems = 'center'>
           <IconButton sx = {{p: 0}}>
-            <MuiLink href= {githubLink} target="_blank">
-              <GitHubIcon color = 'secondary'
+            <MuiLink href= {allLinks.github} target="_blank">
+              <GitHubIcon color = 'HomeFunctionalIcons'
                 sx = {{p: 0, height: 30, width: 30}}/>
             </MuiLink>
           </IconButton>
           <Typography variant = "p3" sx = {{pl: 2}}>
-            https://github.com/adamhammond22
+            {allLinks.github}
           </Typography>
         </Box>
       </Box>
-      {/* Coursework grid */}
-      <Box color = 'quaternary.contrastText' backgroundColor = 'quaternary.main'
-        sx = {{p: 3, mb: 2}} name = 'coursework'>
-        <Typography variant = "h3" sx = {{mb: 3}}>
-        Relevant Coursework
-        </Typography>
-        <Grid container spacing={{xs: 2, md: 3}}
-          columns={{xs: 4, sm: 8, md: 8, xl: 12}}>
-          {courses.map((course, index) => (
-            <Grid item xs={2} sm={4} md={4} key={index}>
-              <Box alignItems = 'center' justifyContent='center'
-                sx = {{p: 1, display: 'flex', minHeight: 50, border: 2,
-                  borderColor: 'secondary.main', height: 'auto',
-                  borderRadius: 4}}>
-                <Typography variant = 'p4' align = 'center'>
-                  <b>{course}</b>
-                </Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+
     </Box>
   );
 };
 
-/* left Content Boxes*/
-const leftContentBoxes = () => {
+
+/* ============================== Right Content Boxes ============================== */
+
+/* rightContentBoxes returns JSX rendering content boxes that appear on the left */
+const rightContentBoxes = () => {
   return (
-    <Box sx = {{minWidth: 400}}>
-      {/* Languages Box */}
-      <Box backgroundColor = 'primary.main'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'languages' sx = {{mb: 1}}>
-        Languages
-        </Typography>
-        {/* Left and Right side boxes */}
-        <Box sx = {{display: 'flex',
-          flexDirection: 'row', justifyContent: 'space-between',
-          lineHeight: 1.6, mt: 2}}>
-          {/* Left side box */}
-          <Box name = 'languages left'>
-            <Typography variant = "p3">
-            C<br/>
-            C++<br/>
-            Python<br/>
-            JavaScript & React<br/>
-            HTML & CSS<br/>
-            PostgreSQL<br/>
-            </Typography>
-          </Box>
-          {/* right side box */}
-          <Box align = 'right' name = 'languages right'>
-            <Typography variant = "p3">
-            Proficient<br/>
-            Competent<br/>
-            Proficient<br/>
-            Competent<br/>
-            Competent<br/>
-            Novice<br/>
-            </Typography>
-          </Box>
+    <Box name='RightContentContainer'>
+
+    {/* Languages Box */}
+    <Box backgroundColor = 'HomeRightPanel.main' name = 'LanguagesBox'
+      color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+      <Typography variant = "h4" sx = {{mb: 1}}>
+      Languages
+      </Typography>
+
+      {/* Left and Right side boxes */}
+      <Box sx = {{display: 'flex',
+        flexDirection: 'row', justifyContent: 'space-between',
+        lineHeight: 2, mt: 2}}>
+
+        {/* Left side box */}
+        <Box name = 'LangagesLeft'>
+          <Typography variant = "p4">
+            {(Object.keys(languagesKnown)).map((element, index)=> {
+              return(
+                <div key={index}>
+                  {element} 
+                </div>
+              )
+            })}
+          </Typography>
+        </Box>
+        {/* right side box */}
+        <Box align = 'right' name = 'LanguagesRight'>
+          <Typography variant = "p4">
+          {(Object.values(languagesKnown)).map((element, index)=> {
+              return(
+                <div key={index}>
+                  {element}
+                </div>
+              )
+            })}
+          </Typography>
         </Box>
       </Box>
-      {/* Skills Box */}
-      <Box backgroundColor = 'primary.main'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'technologies'
+    </Box>
+
+      {/* Concepts Box */}
+      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h4" name = 'Concepts'
           sx = {{mb: 1}}>
-      Technologies
-        </Typography>
-        <Box sx = {{lineHeight: 1.6, mt: 2}}>
-          <Typography variant = "p3">
-            Windows, Unix & Linux<br/>
-            Command Line & Bash Scripting<br/>
-            Make<br/>
-            Docker<br/>
-            LaTeX<br/>
-            Git & Perforce<br/>
-            Unreal Engine 4 & 5<br/>
-          </Typography>
-        </Box>
-      </Box>
-      {/* Frameworks and Specs Box */}
-      <Box backgroundColor = 'primary.main'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'frameworks and specifications'>
-      Frameworks & Specs
-        </Typography>
-        <Box sx = {{lineHeight: 1.6, mt: 2}}>
-          <Typography variant = "p3">
-            React.js<br/>
-            Node.js & Express<br/>
-            Open API<br/>
-            RESTful APIs<br/>
-          </Typography>
-        </Box>
-      </Box>
-      {/* Frameworks and Specs Box */}
-      <Box backgroundColor = 'primary.main'
-        color = 'primary.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'frameworks and specifications'>
-        Education
+          Concepts
         </Typography>
         <Box sx = {{mt: 2}}>
-          <Typography variant = "p3">
-            <b>B.S. Computer Science</b><br />
-          </Typography>
           <Typography variant = "p4">
-        University of California Santa Cruz<br/>
-        2020-2024(expected)
+            {conceptsKnown.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
           </Typography>
         </Box>
       </Box>
+
+
+      {/* Technologies & Data Management Box */}
+      <Box sx = {{flexGrow:1, p: 2, mb:2}} backgroundColor = 'HomeRightPanel.main'
+        color = 'HomeRightPanel.contrastText'>
+        <Typography variant = "h4" name = 'TechnologiesAndDataManagement'
+          sx = {{mb: 1}}>
+          Technologies & Data Management
+        </Typography>
+        <Box sx = {{}}>
+          <Typography variant = "p4">
+            {technologiesAndDataManagament.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+
+
+      {/* Frameworks & Libraries Box */}
+      <Box sx = {{flexGrow:1, p: 2, mb: 2}} backgroundColor = 'HomeRightPanel.main'
+        color = 'HomeRightPanel.contrastText'>
+        <Typography variant = "h4" name = 'FrameworksAndLibraries'
+          sx = {{mb: 1}}>
+          Frameworks & Libraries
+        </Typography>
+        <Box sx = {{}}>
+          <Typography variant = "p4">
+            {frameworksAndLibraries.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+
+
+      {/* Version Control & Automation Box */}
+      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h4" name = 'VersionControlAndAutomation'
+          sx = {{mb: 1}}>
+          Version Control & Automation
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Typography variant = "p4">
+            {versionControlAndAutomation.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+      {/* Markup & Formatting Box */}
+      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h4" name = 'MarkupAndFormatting'
+          sx = {{mb: 1}}>
+          Markup & Formatting
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Typography variant = "p4">
+            {markupAndFormatting.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+  
     </Box>
   );
 };
 
+/* ============================== Relevant Coursework Boxes ============================== */
+// Though these do go on the left side, they are broken out to be rendered lower on mobile since they're not important
+const relevantCourseworkBoxes = () => {
+  return (
+  <Box>
+    {/* Coursework Box */}
+    <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
+      sx = {{p: 3, mb: 2}} name = 'CourseworkBox'>
+      <Typography variant = "h3" sx = {{mb: 3}}>
+      Relevant Coursework
+      </Typography>
+      <Grid container spacing={{xs: 2, md: 3}}
+        columns={{xs: 4, sm: 8, md: 8, xl: 12}}>
+        {courses.map((course, index) => (
+          <Grid item xs={2} sm={4} md={4} key={index}>
+            <Box alignItems = 'center' justifyContent='center'
+              sx = {{p: 1, display: 'flex', minHeight: 50, border: 2,
+                borderColor: 'HomeLeftPanel.contrastText', height: 'auto',
+                borderRadius: 4}}>
+              <Typography variant = 'p4' align = 'center'>
+                <b>{course}</b>
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
 
+
+  </Box>
+)}
+
+export {relevantCourseworkBoxes};
 export {leftContentBoxes};
 export {rightContentBoxes};

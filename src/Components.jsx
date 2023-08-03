@@ -1,34 +1,27 @@
+/* Components.jsx holds major jsx components like the Navbar and the Footer */
+
 import React, {useContext} from 'react';
-// import Drawer from '@mui/material/Drawer';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import AppBar from '@mui/material/AppBar';
-import {Typography} from '@mui/material';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Drawer from '@mui/material/Drawer';
-import MenuIcon from '@mui/icons-material/Menu';
-import Menu from '@mui/material/Menu';
-import Button from '@mui/material/Button';
-import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import MenuItem from '@mui/material/MenuItem';
-import ContactPageIcon from '@mui/icons-material/ContactPage';
-import Toolbar from '@mui/material/Toolbar';
-import SettingsIcon from '@mui/icons-material/Settings';
-import {ThemeStateContext} from './Contexts';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+
+import {Box, Typography, Button, Drawer, Menu, IconButton, AppBar,
+  MenuItem, Toolbar, FormGroup, FormControlLabel, Switch} from '@mui/material';
+
+import {
+  LinkedIn as LinkedInIcon, GitHub as GitHubIcon,
+  Email as EmailIcon,
+  Menu as MenuIcon, QuestionAnswer as QuestionAnswerIcon,
+  WorkHistory as WorkHistoryIcon, Settings as SettingsIcon,
+  ContactPage as ContactPageIcon, Home as HomeIcon,
+} from '@mui/icons-material';
+
+/* Distinguish between link types! */
 import {Link as RouterLink} from 'react-router-dom';
 import {Link as MuiLink} from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
 
-const resumeLink = 'AdamHammondResumeNov22-4.pdf';
+import {ThemeStateContext} from './Contexts';
+import { allLinks } from './App';
+import { handleCopyEmailToClipboard } from './helperFunctions';
 
-const githubLink = 'https://github.com/adamhammond22';
-const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
-
+const resumeLink = 'AdamHammondResumeAug2.pdf';
 
 
 /**
@@ -37,10 +30,10 @@ const linkedInLink = 'https://www.linkedin.com/in/adamhammond22/';
  * @return {object} JSX
  */
 function CustomNavbar(props) {
-  /* Theme State */
+  /* Acquire themestate from parent's context */
   const {themeState, changeThemeState} = useContext(ThemeStateContext);
 
-  /* State to track if collapsed navbar open */
+  /* State to track if collapsed navbar is open */
   const [CollapsedNBOpen, setCollapsedNBOpen] = React.useState(false);
 
   /* Handles a change in collapsed NB, setting it to usable boolean */
@@ -94,7 +87,7 @@ function CustomNavbar(props) {
         <RouterLink to='/'>
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-            color = 'nbButtons'
+            color = 'NavbarButtons'
             variant = 'contained'
             startIcon={<HomeIcon />}
             name = {'Home button'}
@@ -107,7 +100,7 @@ function CustomNavbar(props) {
         <RouterLink to='/Projects'>
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-            color = 'nbButtons'
+            color = 'NavbarButtons'
             variant = 'contained'
             startIcon={<WorkHistoryIcon />}
             name = {'Projects button'}
@@ -120,7 +113,7 @@ function CustomNavbar(props) {
         <MuiLink href= {resumeLink} target="_blank">
           <Button
             sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-            color = 'nbButtons'
+            color = 'NavbarButtons'
             variant = 'contained'
             startIcon={<ContactPageIcon />}
             name = {'Resume button'}
@@ -133,7 +126,7 @@ function CustomNavbar(props) {
         <Button
           onClick = {handleContactClick}
           sx = {{maxWidth: 120, ml: 2, mb: 1, mt: 1}}
-          color = 'nbButtons'
+          color = 'NavbarButtons'
           variant = 'contained'
           startIcon={<QuestionAnswerIcon />}
           name = {'Contact button'}
@@ -143,69 +136,104 @@ function CustomNavbar(props) {
           </Typography>
         </Button>
         {/* Contact Menu */}
-        <Menu
+        <Menu backgroundcolor='NavbarBackground.main'
           anchorEl = {contactAnchor}
           open = {contactOpen}
           onClose = {handleContactClose}
-          sx = {{minWidth:400}}>
-            <Typography>abhammond22@gmail.com</Typography>
+          sx = {{width: 600}}>
+            <Box  color='HomeGreetingIcons' backgroundcolor='NavbarButtons.main'
+              sx={{height:'auto', width:250}}>
+              {/* Email Item */}
+              <MenuItem onClick={() => handleCopyEmailToClipboard()}>
+                <EmailIcon color ='NavbarContactListIcons' sx={{height:20, width:20, mr:1}}/>
+                <Typography variant='p4' color='NavbarButtons.contrastText'>
+                  {allLinks.email}
+                </Typography>
+              </MenuItem>
+
+              {/* Github Item */}
+              <MuiLink href= {allLinks.github} target="_blank">
+                <MenuItem>
+                  <GitHubIcon color ='NavbarContactListIcons' sx={{height:20, width:20, mr:1}}/>
+                  <Typography variant='p4' color='NavbarButtons.contrastText'>
+                    Github Profile
+                  </Typography>
+                </MenuItem>
+              </MuiLink>
+
+              {/* Linkedin Item */}
+              <MuiLink href= {allLinks.linkedin} target="_blank">
+                <MenuItem>
+                  <LinkedInIcon color ='NavbarContactListIcons' sx={{height:20, width:20, mr:1}}/>
+                  <Typography variant='p4' color='NavbarButtons.contrastText'>
+                    LinkedIn Profile
+                  </Typography>
+                </MenuItem>
+              </MuiLink>
+            </Box>
         </Menu>
       </Box>
     );
   };
   
-  /* Actual Return of navbar */
+  /* ==================================== Navbar Return ==================================== */
   return (
     <Box sx={{flexGrow: 1}}>
-      {/* Collapsed Navbar */}
+  
+      {/* ================== Collapsed Navbar ================== */}
       <Drawer
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
         sx = {{xs: 'block', md: 'none', minWidth: 100}}
-        label = 'Main Navbar'
-        anchor = 'left'
-        name = 'left navbar'
-        open = {CollapsedNBOpen}
+        label = 'Main Navbar' anchor = 'left'
+        name = 'left navbar' open = {CollapsedNBOpen}
         onClose = {handleChangeCollapsed}
-        variant = 'temporary'
-        PaperProps={{sx: {width: 160}}}>
+        variant = 'temporary' PaperProps={{sx: {width: 160}}}>
+
         <IconButton />
+
         {menuButtons()}
+
       </Drawer>
-      {/* Top Navbar */}
+
+
+      {/* ================== Top Navbar ================== */}
       <AppBar position="static"
-        color = 'primary' name = 'top navbar'>
-        <Toolbar>
+        color = 'NavbarBackground' name = 'top navbar'>
+        <Toolbar disableGutters={true}>
+
           {/* Collapsed Options */}
           <IconButton sx =
-            {{display: {xs: 'flex', md: 'none', padding: 0},
+            {{display: {xs: 'flex', md: 'none', padding: 0, m:0},
               fontSize: 40, height: 60, width: 60}}
-          name = 'navbar options' color = 'nbhighlight' size = 'large'
-          onClick = {handleChangeCollapsed}>
+            name = 'navbar options' color = 'NavbarFunctionalIcons' size = 'large'
+            onClick = {handleChangeCollapsed}>
             <MenuIcon sx = {{height: 40, width: 40}} />
           </IconButton>
+
           {/* Typography box */}
-          <Box sx = {{display: 'flex', flexGrow: 1,
-            justifyContent: 'left'}}name = 'typography box'>
-            <Typography component="div" sx={{fontSize: {xs: 30, sm: 55},
-              display: 'flex'}}>
+          <Box sx = {{display: 'flex', flexGrow: 1, ml:{xs: 0, md: 2},
+            justifyContent: {xs:'center', md:'left'}, flexWrap: 'wrap'}} name = 'typography box'>
+            <Typography variant='h2'>
               Adam Hammond
             </Typography>
           </Box>
+
           {/* Button Box */}
           <Box sx = {{flexGrow: 2, justifyContent: 'flex-end',
             display: {xs: 'none', md: 'flex'}}} name = 'button box'>
             {/* Buttons Box*/}
             {menuButtons()}
           </Box>
+  
           {/* Settings Box*/}
-          <Box sx = {{flexShrink: 1, mr: 2,
+          <Box sx = {{flexShrink: 1, mr: {xs:7, md:8},
             width: 0, justifyContent: 'flex-end'}}
-          name = 'settings box'>
-            <IconButton onClick = {handleSettingsClick}
+            name = 'settings box'>
+            <IconButton sx={{height: 60, width: 60 }}onClick = {handleSettingsClick}
               name = 'settings button'>
-              <SettingsIcon color = 'nbhighlight'/>
+              <SettingsIcon sx = {{height: 30, width: 30}} color = 'NavbarFunctionalIcons'/>
             </IconButton>
             <Menu
               anchorEl = {settingsAnchor}
@@ -213,15 +241,25 @@ function CustomNavbar(props) {
               onClose = {handleSettingsClose}>
               <MenuItem>
                 <FormGroup>
-                  <FormControlLabel control={<Switch
+                  <FormControlLabel control={
+                  <Switch
                     checked = {themeState === 'dark'}
-                    onChange = {handleDarkModeChange}/>} label="Dark Mode" />
+                    sx = {{color: 'green'}}
+                    onChange = {handleDarkModeChange}/>
+                  }
+                    label={
+                    <Typography variant="p4" color="NavbarButtons.contrastText">
+                      <b>Dark Mode</b>
+                    </Typography>
+                    }/>
                 </FormGroup>
               </MenuItem>
             </Menu>
           </Box>
+
         </Toolbar>
       </AppBar>
+
     </Box>
   );
 };
@@ -232,23 +270,23 @@ function CustomNavbar(props) {
  */
 function CustomFooter() {
   return (
-    <Box sx = {{display: 'flex', backgroundColor: 'primary.main'}}
-      color = 'primary.contrastText' name = 'footer'
+    <Box sx = {{display: 'flex', backgroundColor: 'NavbarBackground.main'}}
+      color = 'NavbarBackground.contrastText' name = 'footer'
       alignItems = 'center' justifyContent='center'>
-      <Typography variant = 'p2'>
+      <Typography variant = "h3">
         Adam Hammond
       </Typography>
       <Box sx = {{width: 10}} />
       <IconButton>
-        <MuiLink href= {linkedInLink} target="_blank">
-          <LinkedInIcon color = 'nbButtons'
+        <MuiLink href= {allLinks.linkedin} target="_blank">
+          <LinkedInIcon color = 'NavbarFunctionalIcons'
             sx = {{height: 30, width: 30}}/>
         </MuiLink>
       </IconButton>
       <Box sx = {{width: 10}} />
       <IconButton>
-        <MuiLink href= {githubLink} target="_blank">
-          <GitHubIcon color = 'nbButtons'
+        <MuiLink href= {allLinks.github} target="_blank">
+          <GitHubIcon color = 'NavbarFunctionalIcons'
             sx = {{height: 30, width: 30}}/>
         </MuiLink>
       </IconButton>
