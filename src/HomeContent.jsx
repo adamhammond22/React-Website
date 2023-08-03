@@ -1,4 +1,5 @@
-/* HomeContent holds the panels for the content in home. They are split into 2 content boxes */
+/* HomeContent holds the panels for the content in home. For now they're split into left and right,
+  with the subcategory "education and languages" */
 
 import React from 'react';
 
@@ -6,7 +7,7 @@ import {Typography, Box, Grid, IconButton} from '@mui/material';
 import {Link as MuiLink} from '@mui/material';
 
 import {Email as EmailIcon, LinkedIn as LinkedInIcon,
-  GitHub as GitHubIcon} from '@mui/icons-material';
+  GitHub as GitHubIcon, Circle as CircleIcon} from '@mui/icons-material';
 
 import { allLinks } from './App';
 
@@ -29,28 +30,30 @@ const languagesKnown = {
   'C': 'Proficient',
   'C++': 'Competent',
   'Python': 'Proficient',
-  'JS, React.js': 'Proficient',
-  'HTML/CSS': 'Proficient',
-  'PostGreSQL': 'Novice',
-  
+  'JavaScript': 'Proficient',
+  'SQL': 'Competent',
 }
-const technologiesKnown = [
-  'Windows, Unix & Linux',
-  'Command Line & Bash Scripting',
-  'Make',
-  'Docker',
-  'LaTeX',
-  'Git & Perforce',
-  'Unreal Engine 4 & 5',
-]
 
-const frameworksKnown = [
-  'React.js',
-  'Node.js & Express',
-  'Open API',
-  'RESTful APIs',
-]
+const conceptsKnown = [
+  'Machine Learning', 'Data Structures', 'Algorithm Analysis',
+  'Full Stack Web Development']
 
+const technologiesAndDataManagament = [
+  'PostgreSQL', 'SQLite', 'Docker',
+  'Expo', 'Unreal Engine']
+
+const frameworksAndLibraries =  [
+  'React.js', 'React Native', 'Node.js',
+  'Express.js', 'RESTful APIs', 'Pandas',
+  'Sklearn']
+
+const versionControlAndAutomation = [
+  'Git', 'Github', 'Perforce',
+  'Windows Batch & Bash Scripting', 'Make']
+
+const markupAndFormatting = [
+  'HTML',  'CSS', 'LaTeX',
+  'Markdown']
 
 /* ============================== Left Content Boxes ============================== */
 
@@ -62,15 +65,40 @@ const leftContentBoxes = () => {
       {/* About Me Box */}
       <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
         sx = {{p: 3, mb: 2}} name = 'AboutMeBox'>
-        <Typography variant = "h3">
+        <Typography sx={{mb:2}}variant = "h3">
         About Me
         </Typography>
-        <Typography variant = "p3">
-          I'm interested in Algorithems, Systems, Machine Learning,
-          Networking, and more! I'm currently looking for a 2023
-          Summer Internship, as well as opportunities after I
-          graduate in June 2024!
+        <Typography variant = "p3" sx={{lineHeight: 2}}>
+          I'm interested in SWE, Full Stack Web Dev, Machine Learning,
+          Computer Networks, System Design, Project Management, Algorithm  Analysis and more!<br/><br/>
+          I'm currently looking for an internship related to Software Development, or any of my afformentioned interests.
+          I am graduating 2 quarters early on December 8th 2023, and I will be available full-time from then on!
+          I have experience developing software in teams, and I've practiced Agile development (Scrum). <br/><br/>
+          On a personal note: I enjoy rock climbing, hiking, surfing, music, and of course - coding!<br/>
+          I've always loved solving problems in organized and creative ways, and I hope to find a job where I can do just that.<br/><br/>
+          Feel free to reach out for any reason! You can find my contact information below!<br/><br/>
         </Typography>
+      </Box>
+
+      {/* Education Box*/}
+      <Box backgroundColor = 'HomeLeftPanel.main' name = 'EducationBox'
+        color = 'HomeLeftPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h3" >
+        Education
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Box sx = {{border: 2, padding: 1, mb: 1}} >
+          <Typography variant = "p3">
+            <b>B.S. Computer Science</b><br />
+            University of California Santa Cruz<br />
+          </Typography>
+          </Box>
+          <Typography variant = "p4">
+            Graduating December 2023 (expected)<br/>
+            5x Dean’s Honors Awards<br/>
+            Cumulative GPA: 3.75
+          </Typography>
+        </Box>
       </Box>
 
       {/* Experience Box */}
@@ -173,30 +201,6 @@ const leftContentBoxes = () => {
         </Box>
       </Box>
 
-
-      {/* Coursework Box */}
-      <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
-        sx = {{p: 3, mb: 2}} name = 'CourseworkBox'>
-        <Typography variant = "h3" sx = {{mb: 3}}>
-        Relevant Coursework
-        </Typography>
-        <Grid container spacing={{xs: 2, md: 3}}
-          columns={{xs: 4, sm: 8, md: 8, xl: 12}}>
-          {courses.map((course, index) => (
-            <Grid item xs={2} sm={4} md={4} key={index}>
-              <Box alignItems = 'center' justifyContent='center'
-                sx = {{p: 1, display: 'flex', minHeight: 50, border: 2,
-                  borderColor: 'HomeLeftPanel.contrastText', height: 'auto',
-                  borderRadius: 4}}>
-                <Typography variant = 'p4' align = 'center'>
-                  <b>{course}</b>
-                </Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
     </Box>
   );
 };
@@ -209,111 +213,183 @@ const rightContentBoxes = () => {
   return (
     <Box name='RightContentContainer'>
 
-      {/* Education Box*/}
-      <Box backgroundColor = 'HomeRightPanel.main' name = 'EducationBox'
-        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" >
-        Education
-        </Typography>
-        <Box sx = {{mt: 2}}>
-          <Box sx = {{border: 2, padding: 1, mb: 1}} >
-          <Typography variant = "p3">
-            <b>B.S. Computer Science</b><br />
-            University of California Santa Cruz<br />
-          </Typography>
-          </Box>
+    {/* Languages Box */}
+    <Box backgroundColor = 'HomeRightPanel.main' name = 'LanguagesBox'
+      color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+      <Typography variant = "h4" sx = {{mb: 1}}>
+      Languages
+      </Typography>
+
+      {/* Left and Right side boxes */}
+      <Box sx = {{display: 'flex',
+        flexDirection: 'row', justifyContent: 'space-between',
+        lineHeight: 2, mt: 2}}>
+
+        {/* Left side box */}
+        <Box name = 'LangagesLeft'>
           <Typography variant = "p4">
-            Graduating December 2023 (expected)<br/>
-            5x Dean’s Honors Awards<br/>
-            Cumulative GPA: 3.75
+            {(Object.keys(languagesKnown)).map((element, index)=> {
+              return(
+                <div key={index}>
+                  {element} 
+                </div>
+              )
+            })}
           </Typography>
         </Box>
-      </Box>
-
-      {/* Languages Box */}
-      <Box backgroundColor = 'HomeRightPanel.main' name = 'LanguagesBox'
-        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" sx = {{mb: 1}}>
-        Languages
-        </Typography>
-
-        {/* Left and Right side boxes */}
-        <Box sx = {{display: 'flex',
-          flexDirection: 'row', justifyContent: 'space-between',
-          lineHeight: 1.6, mt: 2}}>
-
-          {/* Left side box */}
-          <Box name = 'LangagesLeft'>
-            <Typography variant = "p3">
-              {(Object.keys(languagesKnown)).map((element, index)=> {
-                return(
-                  <div key={index}>
-                    {element}
-                  </div>
-                )
-              })}
-            </Typography>
-          </Box>
-
-          {/* right side box */}
-          <Box align = 'right' name = 'LanguagesRight'>
-            <Typography variant = "p3">
-            {(Object.values(languagesKnown)).map((element, index)=> {
-                return(
-                  <div key={index}>
-                    {element}
-                  </div>
-                )
-              })}
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-
-
-      {/* Skills Box */}
-      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
-        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" name = 'technologies'
-          sx = {{mb: 1}}>
-          Technologies
-        </Typography>
-        <Box sx = {{lineHeight: 1.6, mt: 2}}>
-          <Typography variant = "p3">
-            {technologiesKnown.map((element, index)=> {
-                return(
-                  <div key={index}>
-                    {element}
-                  </div>
-                )
-              })}
-          </Typography>
-        </Box>
-      </Box>
-
-
-      {/* Frameworks and Specs Box */}
-      <Box backgroundColor = 'HomeRightPanel.main' name = 'FrameworksSpecsBox'
-        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h3" >
-          Frameworks & Specs
-        </Typography>
-        <Box sx = {{lineHeight: 1.6, mt: 2}}>
-          <Typography variant = "p3">
-            {frameworksKnown.map((element, index)=> {
-                  return(
-                    <div key={index}>
-                      {element}
-                    </div>
-                  )
-                })}
+        {/* right side box */}
+        <Box align = 'right' name = 'LanguagesRight'>
+          <Typography variant = "p4">
+          {(Object.values(languagesKnown)).map((element, index)=> {
+              return(
+                <div key={index}>
+                  {element}
+                </div>
+              )
+            })}
           </Typography>
         </Box>
       </Box>
     </Box>
+
+      {/* Concepts Box */}
+      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h4" name = 'Concepts'
+          sx = {{mb: 1}}>
+          Concepts
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Typography variant = "p4">
+            {conceptsKnown.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+
+
+      {/* Technologies & Data Management Box */}
+      <Box sx = {{flexGrow:1, p: 2, mb:2}} backgroundColor = 'HomeRightPanel.main'
+        color = 'HomeRightPanel.contrastText'>
+        <Typography variant = "h4" name = 'TechnologiesAndDataManagement'
+          sx = {{mb: 1}}>
+          Technologies & Data Management
+        </Typography>
+        <Box sx = {{}}>
+          <Typography variant = "p4">
+            {technologiesAndDataManagament.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+
+
+      {/* Frameworks & Libraries Box */}
+      <Box sx = {{flexGrow:1, p: 2, mb: 2}} backgroundColor = 'HomeRightPanel.main'
+        color = 'HomeRightPanel.contrastText'>
+        <Typography variant = "h4" name = 'FrameworksAndLibraries'
+          sx = {{mb: 1}}>
+          Frameworks & Libraries
+        </Typography>
+        <Box sx = {{}}>
+          <Typography variant = "p4">
+            {frameworksAndLibraries.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+
+
+      {/* Version Control & Automation Box */}
+      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h4" name = 'VersionControlAndAutomation'
+          sx = {{mb: 1}}>
+          Version Control & Automation
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Typography variant = "p4">
+            {versionControlAndAutomation.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+      {/* Markup & Formatting Box */}
+      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
+        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
+        <Typography variant = "h4" name = 'MarkupAndFormatting'
+          sx = {{mb: 1}}>
+          Markup & Formatting
+        </Typography>
+        <Box sx = {{mt: 2}}>
+          <Typography variant = "p4">
+            {markupAndFormatting.map((element, index)=> {
+                return(
+                  <div key={index}>
+                    <CircleIcon sx={{width:15, height:15, mr:{xs:0.5, tiny:2}}} />{element}
+                  </div>
+                )
+              })}
+          </Typography>
+        </Box>
+      </Box>
+  
+    </Box>
   );
 };
 
+/* ============================== Relevant Coursework Boxes ============================== */
+// Though these do go on the left side, they are broken out to be rendered lower on mobile since they're not important
+const relevantCourseworkBoxes = () => {
+  return (
+  <Box>
+    {/* Coursework Box */}
+    <Box color = 'HomeLeftPanel.contrastText' backgroundColor = 'HomeLeftPanel.main'
+      sx = {{p: 3, mb: 2}} name = 'CourseworkBox'>
+      <Typography variant = "h3" sx = {{mb: 3}}>
+      Relevant Coursework
+      </Typography>
+      <Grid container spacing={{xs: 2, md: 3}}
+        columns={{xs: 4, sm: 8, md: 8, xl: 12}}>
+        {courses.map((course, index) => (
+          <Grid item xs={2} sm={4} md={4} key={index}>
+            <Box alignItems = 'center' justifyContent='center'
+              sx = {{p: 1, display: 'flex', minHeight: 50, border: 2,
+                borderColor: 'HomeLeftPanel.contrastText', height: 'auto',
+                borderRadius: 4}}>
+              <Typography variant = 'p4' align = 'center'>
+                <b>{course}</b>
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
 
+
+  </Box>
+)}
+
+export {relevantCourseworkBoxes};
 export {leftContentBoxes};
 export {rightContentBoxes};

@@ -6,7 +6,7 @@ import {Typography, Box, IconButton, useTheme, useMediaQuery, Link as MUILink} f
 
 import {LinkedIn as LinkedInIcon, GitHub as GitHubIcon} from '@mui/icons-material';
 
-import {leftContentBoxes, rightContentBoxes} from '../HomeContent';
+import {relevantCourseworkBoxes, leftContentBoxes, rightContentBoxes} from '../HomeContent';
 import { allLinks } from '../App';
 
 /**
@@ -40,8 +40,8 @@ function Home() {
             </Typography>
             <Typography variant = 'p2' color = 'HomeGreetingPanel.contrastText'>
               I'm Adam Hammond, <br />
-              I am a 3rd year Computer Science student at
-              University of California, Santa Cruz.
+              I am a 4th year Computer Science student at the
+              University of California, Santa Cruz. <br/>
             </Typography>
             <br />
             {/* Github Icon */}
@@ -88,12 +88,13 @@ function MainContentSplitter() {
         justifyContent: 'space-between', flexDirection: 'row'}}>
 
         {/* Left Container */}
-        <Box name= 'MainContentLeft' sx={{flexDirection: 'column', flexGrow: 5, maxWidth: 1000}}>
+        <Box name= 'MainContentLeft' sx={{flexDirection: 'column', flexGrow: 6, maxWidth: 1000}}>
           {leftContentBoxes()}
+          {relevantCourseworkBoxes()}
         </Box>
 
         {/* Right Container */}
-        <Box name = 'MainContentRight' sx={{flexDirection: 'column', flexGrow: 2, maxWidth: 400,
+        <Box name = 'MainContentRight' sx={{flexDirection: 'column', flexGrow:3, maxWidth: 500,
           ml: 2}}>
           {rightContentBoxes()}
         </Box>
@@ -107,8 +108,9 @@ function MainContentSplitter() {
       <Box name= 'MainContentCenter' sx={{display: 'flex', justifyContent: 'center', width: `calc(90%)`, mt: 2,
         flexDirection: 'column'}}>
         
-        {rightContentBoxes()}
         {leftContentBoxes()}
+        {rightContentBoxes()}
+        {relevantCourseworkBoxes()}
       </Box>);
   }
 };

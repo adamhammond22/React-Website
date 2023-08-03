@@ -183,7 +183,7 @@ function CustomNavbar(props) {
           </IconButton>
 
           {/* Typography box */}
-          <Box sx = {{display: 'flex', flexGrow: 1,
+          <Box sx = {{display: 'flex', flexGrow: 1, ml:{xs: 0, md: 2},
             justifyContent: {xs:'center', md:'left'}, flexWrap: 'wrap'}} name = 'typography box'>
             <Typography variant='h2'>
               Adam Hammond

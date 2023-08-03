@@ -33,11 +33,30 @@ const typographyStyles = {
         fontSize: 25,
       },
     },
-    // Box headers
+    // Left Content Box Headers
     h3: {
       fontSize: 30,
       [nestedBreakpointsTheme.breakpoints.down("tiny")]: {
         fontSize: 25,
+      },
+    },
+    // Right Content Box Headers
+    h4: {
+      fontSize: 30,
+      [nestedBreakpointsTheme.breakpoints.only("lg")]: {
+        fontSize: 25,
+      },
+      [nestedBreakpointsTheme.breakpoints.only("md")]: {
+        fontSize: 22,
+      },
+      [nestedBreakpointsTheme.breakpoints.only("sm")]: {
+        fontSize: 20,
+      },
+      [nestedBreakpointsTheme.breakpoints.only("tiny")]: {
+        fontSize: 18,
+      },
+      [nestedBreakpointsTheme.breakpoints.only("xs")]: {
+        fontSize: 17,
       },
     },
     // Navbar Buttons
@@ -64,8 +83,11 @@ const typographyStyles = {
     // Normal Text
     p3: {
       fontSize: 20,
-      [nestedBreakpointsTheme.breakpoints.down("tiny")]: {
+      [nestedBreakpointsTheme.breakpoints.only("tiny")]: {
         fontSize: 16,
+      },
+      [nestedBreakpointsTheme.breakpoints.only("xs")]: {
+        fontSize: 14,
       },
     },
     // Tiny Text
@@ -92,7 +114,7 @@ const darkTheme = {
       contrastText: '#121212', //black
     },
     NavbarFunctionalIcons: { //Handles settings and collpsedNB
-      main: '#fbe49b', //yellow
+      main: '#BB86FC', //bright purple
       contrastText: '#121212', //black
     },
   
@@ -181,25 +203,25 @@ const lightTheme = {
 
     /* Homepage Colors */
     HomeLeftPanel: {
-      main: '#3a6860', //turquoise
+      main: '#42394b', //less deep purple
       contrastText: '#fff', //clean white
     },
     HomeRightPanel: {
-      main: '#42394b', //less deep purple
-      contrastText: '#fff', //clean white
+      main: '#fbe49b', //yellow
+      contrastText: 'black',
     },
     HomeFunctionalIcons: {
       main: '#fff', //clean white
     },
 
     HomeGreetingPanel: {
-      main: '#fbe49b', // yellow
+      main: '#fbe49b', //yellow
       contrastText: 'black',
       /* Image Border Color */
-      dark: '#3a6860', //turquoise
+      dark: '#42394b', //less deep purple
     },
     HomeGreetingIcons: {
-      main: '#3a6860', //turquoise
+      main: '#42394b', //less deep purple
     },
 
     /* Project Colors */
@@ -223,7 +245,7 @@ const lightTheme = {
 
     /* Background Color */
     background: {
-      default: '#faf4ec',
+      default: '#fff', //clean white
     },
 
   },
