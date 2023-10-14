@@ -21,7 +21,7 @@ import {ThemeStateContext} from './Contexts';
 import { allLinks } from './App';
 import { handleCopyEmailToClipboard } from './helperFunctions';
 
-const resumeLink = 'AdamHammondResumeAug2.pdf';
+const resumeLink = 'AdamHammondResume.pdf';
 
 
 /**
