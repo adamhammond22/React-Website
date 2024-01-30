@@ -27,29 +27,25 @@ const courses = [
   'Computer Networks',
 ];
 const languagesKnown = {
-  'C': 'Proficient',
-  'C++': 'Competent',
+
   'Python': 'Proficient',
   'JavaScript': 'Proficient',
-  'SQL': 'Competent',
+  'C': 'Proficient',
+  'C++': 'Competent',
+  'SQL': 'Proficient',
+  'HTML/CSS': 'Competent',
 }
 
-const conceptsKnown = [
-  'Machine Learning', 'Data Structures', 'Algorithm Analysis',
-  'Full Stack Web Development']
+const conceptsKnown = [ 'Agile Development',  'RESTful APIs', 'Machine Learning', 'Responsive Web Design', 'Full Stack Development']
 
-const technologiesAndDataManagament = [
-  'PostgreSQL', 'SQLite', 'Docker',
-  'Expo', 'Unreal Engine']
+const technologiesAndTools = [
+  'MongoDB', 'PostgreSQL', 'Git', 'Perforce', 'Docker', 'GDB/Valgrind/Make', 'Batch/Bash scripts'
+]
+
 
 const frameworksAndLibraries =  [
-  'React.js', 'React Native', 'Node.js',
-  'Express.js', 'RESTful APIs', 'Pandas',
-  'Sklearn']
+  'React', 'React Native', 'Node.js', 'Express.js', 'Flask', 'Pandas', 'PyTorch', 'Hugging Face', 'tkinter']
 
-const versionControlAndAutomation = [
-  'Git', 'Github', 'Perforce',
-  'Windows Batch & Bash Scripting', 'Make']
 
 const markupAndFormatting = [
   'HTML',  'CSS', 'LaTeX',
@@ -69,11 +65,11 @@ const leftContentBoxes = () => {
         About Me
         </Typography>
         <Typography variant = "p3" sx={{lineHeight: 2}}>
-          I'm interested in SWE, Full Stack Web Dev, Machine Learning,
-          Computer Networks, System Design, Project Management, Algorithm  Analysis and more.<br/><br/>
-          I'm currently looking for an internship related to Software Development, or any of my afformentioned interests.
-          I am graduating 2 quarters early on December 8th 2023, and I will be available full-time from then on!
-          I have experience developing software in teams, and I've practiced Agile development (Scrum). <br/><br/>
+          I'm currently searching for a full-time job in Software Engineering, Full Stack Development, or Machine Learning!<br/>
+         
+          I am well acquainted with Agile Development, and I love working with a team or alone!
+          I have a large repertoire of relevant projects publicly available on my GitHub, including this website. 
+          <br/><br/>
           On a personal note: I enjoy rock climbing, hiking, surfing, music, and of course — coding!<br/>
           I've always loved solving problems in organized and creative ways, and I hope to find a job where I can do just that.<br/><br/>
           Feel free to reach out for any reason, you can find my contact information below!<br/><br/>
@@ -87,16 +83,22 @@ const leftContentBoxes = () => {
         Education
         </Typography>
         <Box sx = {{mt: 2}}>
-          <Box sx = {{border: 2, padding: 1, mb: 1, borderColor: 'HomeLeftPanel.light'}} >
-          <Typography variant = "p3">
-            <b>B.S. Computer Science</b><br />
-            University of California Santa Cruz<br />
-          </Typography>
+          <Box sx = {{border: 2, padding: 1, mb: 1, borderColor: 'HomeLeftPanel.light', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Box align='left'>
+              <Typography  variant = "p3" >
+                <b>B.S. Computer Science</b><br />
+                University of California Santa Cruz<br />
+              </Typography>
+            </Box>
+            <Box align='right' sx={{ display:'flex', alignItems: 'center'}}> 
+              <Typography  variant = "p3" >
+                2020 - 2023
+              </Typography>
+            </Box>
           </Box>
           <Typography variant = "p4">
-            Graduating December 2023 (expected)<br/>
             5x Dean’s Honors Awards<br/>
-            Cumulative GPA: 3.75
+            GPA: 3.75
           </Typography>
         </Box>
       </Box>
@@ -152,10 +154,10 @@ const leftContentBoxes = () => {
           {/* right Half - Job Description */}
           <Box sx = {{flexGrow: 1, maxWidth: 400}}>
             <Typography variant = "p4">
-              Worked Remotely with 2 other programmers on a cohesive
-              game in Unreal Engine 5.<br />
-              Used Perforce for source control and contributed
-              with a  C++ and Unreal Engine 5.
+            ◆ Designed C++ classes and functions as backend parents for Unreal Engine 5 elements <br/>
+            ◆ Learned and worked with many Unreal 5 systems like Behavior trees, Blueprints, UI plugins<br/>
+            ◆ Developed main menu, keybinding design, UI, level generation, and AI behavior<br/>
+            ◆ Used Perforce source control with continuous integration on a custom Jenkins server<br/>
             </Typography>
           </Box>
         </Box>
@@ -273,16 +275,16 @@ const rightContentBoxes = () => {
       </Box>
 
 
-      {/* Technologies & Data Management Box */}
+      {/* Technologies & Tools Box */}
       <Box sx = {{flexGrow:1, p: 2, mb:2}} backgroundColor = 'HomeRightPanel.main'
         color = 'HomeRightPanel.contrastText'>
-        <Typography variant = "h4" name = 'TechnologiesAndDataManagement'
+        <Typography variant = "h4" name = 'TechnologiesAndTools'
           sx = {{mb: 1}}>
-          Technologies & Data Management
+          Technologies & Tools
         </Typography>
         <Box sx = {{}}>
           <Typography variant = "p4">
-            {technologiesAndDataManagament.map((element, index)=> {
+            {technologiesAndTools.map((element, index)=> {
                 return(
                   <div key={index}>
                     <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
@@ -315,25 +317,6 @@ const rightContentBoxes = () => {
       </Box>
 
 
-      {/* Version Control & Automation Box */}
-      <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
-        color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>
-        <Typography variant = "h4" name = 'VersionControlAndAutomation'
-          sx = {{mb: 1}}>
-          Version Control & Automation
-        </Typography>
-        <Box sx = {{mt: 2}}>
-          <Typography variant = "p4">
-            {versionControlAndAutomation.map((element, index)=> {
-                return(
-                  <div key={index}>
-                    <CircleIcon sx={{width:13, height:13, mr:{xs:0.5, tiny:2}}} />{element}
-                  </div>
-                )
-              })}
-          </Typography>
-        </Box>
-      </Box>
       {/* Markup & Formatting Box */}
       <Box backgroundColor = 'HomeRightPanel.main' name='SkillsBox'
         color = 'HomeRightPanel.contrastText' sx = {{p: 3, mb: 2}}>

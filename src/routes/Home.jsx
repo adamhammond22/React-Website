@@ -17,7 +17,7 @@ function Home() {
 
   return (
 
-      /* Home Content Containter */
+      /* Home Content Container */
       <Box name= 'HomeContentContainer' sx={{display: 'flex', alignItems: 'center',
         flexDirection: 'column'}}>
 
