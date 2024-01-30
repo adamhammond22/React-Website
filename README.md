@@ -2,9 +2,13 @@
 
 My personal website build using React and Material-UI.
 
-It's still very much work-in-progress, and I will be refining it as time goes on.
+It features 2 routes or pages, and a dark mode switch.
 
-I'm pretty novice to actual deployment of web-dev solutions, so feel free to contact me reguarding bugs, issues, or reccomendations! 
+It was created while I was less comfortable with Javascript and React, so some code is dubious. I've cleaned up a good deal but some structural choices were just not worth the time to fix.
+
+I'm deploying using the gh-pages package
+
+It's also commented pretty heavily so it's pretty understandable, take a look!
 
 Thanks for reading :)
 

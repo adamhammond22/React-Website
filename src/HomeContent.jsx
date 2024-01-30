@@ -85,13 +85,13 @@ const leftContentBoxes = () => {
         <Box sx = {{mt: 2}}>
           <Box sx = {{border: 2, padding: 1, mb: 1, borderColor: 'HomeLeftPanel.light', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <Box align='left'>
-              <Typography inline variant = "p3" >
+              <Typography  variant = "p3" >
                 <b>B.S. Computer Science</b><br />
                 University of California Santa Cruz<br />
               </Typography>
             </Box>
             <Box align='right' sx={{ display:'flex', alignItems: 'center'}}> 
-              <Typography inline variant = "p3" >
+              <Typography  variant = "p3" >
                 2020 - 2023
               </Typography>
             </Box>
