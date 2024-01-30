@@ -83,19 +83,22 @@ const leftContentBoxes = () => {
         Education
         </Typography>
         <Box sx = {{mt: 2}}>
-          <Box sx = {{border: 2, padding: 1, mb: 1, borderColor: 'HomeLeftPanel.light'}} justify='space-between'>
-            <Typography inline variant = "p3" align='left'>
-              <b>B.S. Computer Science</b><br />
-              University of California Santa Cruz<br />
-            </Typography>
-            <Typography inline variant = "p3" align='right'>
-              <b>2020-2023</b><br />
-            </Typography>
+          <Box sx = {{border: 2, padding: 1, mb: 1, borderColor: 'HomeLeftPanel.light', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Box align='left'>
+              <Typography inline variant = "p3" >
+                <b>B.S. Computer Science</b><br />
+                University of California Santa Cruz<br />
+              </Typography>
+            </Box>
+            <Box align='right' sx={{ display:'flex', alignItems: 'center'}}> 
+              <Typography inline variant = "p3" >
+                2020 - 2023
+              </Typography>
+            </Box>
           </Box>
           <Typography variant = "p4">
-            Graduating December 2023 (expected)<br/>
             5x Dean’s Honors Awards<br/>
-            Cumulative GPA: 3.75
+            GPA: 3.75
           </Typography>
         </Box>
       </Box>
@@ -151,10 +154,10 @@ const leftContentBoxes = () => {
           {/* right Half - Job Description */}
           <Box sx = {{flexGrow: 1, maxWidth: 400}}>
             <Typography variant = "p4">
-              Worked Remotely with 2 other programmers on a cohesive
-              game in Unreal Engine 5.<br />
-              Used Perforce for source control and contributed
-              with a  C++ and Unreal Engine 5.
+            ◆ Designed C++ classes and functions as backend parents for Unreal Engine 5 elements <br/>
+            ◆ Learned and worked with many Unreal 5 systems like Behavior trees, Blueprints, UI plugins<br/>
+            ◆ Developed main menu, keybinding design, UI, level generation, and AI behavior<br/>
+            ◆ Used Perforce source control with continuous integration on a custom Jenkins server<br/>
             </Typography>
           </Box>
         </Box>
