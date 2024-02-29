@@ -40,9 +40,8 @@ function Home() {
               Hello There! <br />
             </Typography>
             <Typography variant = 'p2' color = 'HomeGreetingPanel.contrastText'>
-              I'm Adam Hammond, <br />
-              I am a 4th year Computer Science student at the
-              University of California, Santa Cruz. <br/>
+              I'm Adam Hammond,<br />
+              I am an aspiring Software Engineer in the Bay Area. I have recently graduated with a B.S. in Computer Science at the University of California, Santa Cruz.<br/>
             </Typography>
             <br />
             {/* Github Icon */}
